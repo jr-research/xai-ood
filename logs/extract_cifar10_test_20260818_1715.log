@@ -1,0 +1,19 @@
+[extract] 9000 images, variant=dinov2_vitb14, device=cuda
+Traceback (most recent call last):
+  File "/home/stud/jreutter/xai-ood/scripts/extract_embeddings.py", line 317, in <module>
+    main()
+  File "/home/stud/jreutter/xai-ood/scripts/extract_embeddings.py", line 264, in main
+    model = load_dinov2(args.variant, device)
+  File "/home/stud/jreutter/xai-ood/scripts/extract_embeddings.py", line 124, in load_dinov2
+    model = torch.hub.load("facebookresearch/dinov2", variant)
+  File "/home/stud/jreutter/miniforge3/envs/xai-ood/lib/python3.10/site-packages/torch/hub.py", line 661, in load
+    repo_or_dir = _get_cache_or_reload(
+  File "/home/stud/jreutter/miniforge3/envs/xai-ood/lib/python3.10/site-packages/torch/hub.py", line 291, in _get_cache_or_reload
+    _check_repo_is_trusted(
+  File "/home/stud/jreutter/miniforge3/envs/xai-ood/lib/python3.10/site-packages/torch/hub.py", line 360, in _check_repo_is_trusted
+    Path(filepath).touch()
+  File "/home/stud/jreutter/miniforge3/envs/xai-ood/lib/python3.10/pathlib.py", line 1168, in touch
+    self._accessor.touch(self, mode, exist_ok)
+  File "/home/stud/jreutter/miniforge3/envs/xai-ood/lib/python3.10/pathlib.py", line 331, in touch
+    fd = os.open(path, flags, mode)
+PermissionError: [Errno 13] Permission denied: '/data/local/model_cache/torch/hub/trusted_list'

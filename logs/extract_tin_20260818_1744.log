@@ -1,0 +1,10 @@
+[extract] 7793 images, variant=dinov2_vitb14, device=cuda
+Using cache found in /mnt/data/jreutter/.cache/torch/hub/facebookresearch_dinov2_main
+/mnt/data/jreutter/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/mnt/data/jreutter/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/mnt/data/jreutter/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[extract] wrote 7793 rows to /mnt/data/jreutter/thesis-data/embeddings/dinov2_vitb14/res224_bicubic/tin
+[extract] embedding norm range (cls): [39.731, 50.986]

@@ -1,0 +1,10 @@
+usage: extract_embeddings.py [-h] --imglist IMGLIST --data-root DATA_ROOT
+                             --out-root OUT_ROOT --split-name SPLIT_NAME
+                             [--variant {dinov2_vitb14,dinov2_vitb14_reg}]
+                             [--batch-size BATCH_SIZE]
+                             [--num-workers NUM_WORKERS] [--device DEVICE]
+                             [--norm-mean NORM_MEAN NORM_MEAN NORM_MEAN]
+                             [--norm-std NORM_STD NORM_STD NORM_STD]
+                             [--thesis-repo-root THESIS_REPO_ROOT]
+                             [--openood-repo-root OPENOOD_REPO_ROOT]
+extract_embeddings.py: error: argument --data-root: expected one argument

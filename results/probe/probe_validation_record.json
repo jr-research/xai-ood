@@ -1,0 +1,22 @@
+{
+  "train_split": "cifar10_train",
+  "test_split": "cifar10_test",
+  "train_accuracy": 1.0,
+  "test_accuracy": 0.9845555555555555,
+  "published_target_accuracy": 0.987,
+  "published_target_source": "Oquab et al. (2023), DINOv2 paper, Appendix Table 8 ('Linear evaluation of frozen features on fine-grained benchmarks'), ViT-B/14 row, C10 (CIFAR-10) column -- confirm this citation matches what was actually read before treating this record as final.",
+  "target_accuracy_overridden_from_cli": false,
+  "tolerance_overridden_from_cli": false,
+  "tolerance": 0.02,
+  "delta": -0.0024444444444444713,
+  "within_tolerance": true,
+  "sklearn_solver": "lbfgs",
+  "sklearn_C": 1.0,
+  "max_iter": 1000,
+  "seed": 0,
+  "n_train": 50000,
+  "n_test": 9000,
+  "embedding_dim": 768,
+  "timestamp_utc": "2026-08-18T17:50:53.316924+00:00",
+  "thesis_repo_commit": "3da2288b2adde4e4a9e062dbf1b87b7a14283e83"
+}
