@@ -118,4 +118,3 @@ dependencies:
       - urllib3==2.7.0
       - virtualenv==21.7.1
       - xai-ood==0.1.0
-prefix: /home/stud/jreutter/miniforge3/envs/xai-ood

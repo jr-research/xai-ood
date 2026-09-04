@@ -43,7 +43,7 @@ MDS, RMDS, and kNN reproduced OpenOOD v1.5's published CIFAR-10 standard-protoco
 ## Preliminary embedding cache layout 
 
 ```
-/mnt/data/jreutter/thesis-data/embeddings/
+<data-root>/embeddings/
 └── dinov2_vitb14/
     └── res224_bicubic/
         ├── cifar10_train/

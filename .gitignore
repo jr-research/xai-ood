@@ -50,10 +50,6 @@ environment.local.yml
 # Secrets, if any config ever needs one (e.g. an optional wandb key later)
 .env
 *.secret.yml
-*.parquet
-*.h5
-*.hdf5
-*.feather
-*.safetensors
-*.faiss
-*.index
+results/figures/**
+!results/figures/
+!results/figures/.gitkeep

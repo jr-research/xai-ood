@@ -119,4 +119,3 @@ dependencies:
       - tzdata==2026.3
       - urllib3==2.7.0
       - virtualenv==21.7.0
-prefix: /home/stud/jreutter/miniforge3/envs/openood
