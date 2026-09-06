@@ -17,7 +17,8 @@ Usage:
     python scripts/train_linear_probe.py \
         --embeddings-root <data-root>/embeddings/dinov2_vitb14/res224_bicubic \
         --out-dir results/probe \
-        --thesis-repo-root <repo>
+        --thesis-repo-root <repo> \
+        --openood-repo-root <openood-checkout>
 """
 
 from __future__ import annotations
@@ -90,6 +91,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--thesis-repo-root", type=Path, default=None)
+    parser.add_argument("--openood-repo-root", type=Path, default=None)
     args = parser.parse_args()
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -163,6 +165,9 @@ def main() -> None:
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "thesis_repo_commit": (
             git_commit_hash(args.thesis_repo_root) if args.thesis_repo_root else None
+        ),
+        "openood_repo_commit": (
+            git_commit_hash(args.openood_repo_root) if args.openood_repo_root else None
         ),
     }
     with open(args.out_dir / "probe_validation_record.json", "w") as f:
