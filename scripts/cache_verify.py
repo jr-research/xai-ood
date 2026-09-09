@@ -3,7 +3,8 @@
 Per split, checks that cls.npy, patchmean.npy, labels.npy and filelist.txt all
 agree on row count, that they agree with the manifest's recorded row_count and
 shapes, that neither embedding array contains NaN or Inf, and that the source
-imglist still hashes to the value recorded at extraction time.
+imglist still hashes to the value recorded at extraction time. Across splits,
+checks that every manifest records the same OpenOOD checkout.
 
 Exit status is non-zero if anything fails.
 """
@@ -34,8 +35,14 @@ EXPECTED_ROWS = {
     "svhn": 26_032,
     "texture": 5_640,
     "places365": 35_195,
+    "csid": 150_000,
 }
-EXPECTED_TOTAL = 213_660
+EXPECTED_TOTAL = 363_660
+
+# The OpenOOD checkout every split must have been extracted against. Named here
+# rather than inferred from the manifests, so a cache built against a different
+# checkout fails instead of silently redefining what agreement means.
+EXPECTED_OPENOOD_COMMIT = "8d44375"
 
 
 def sha256_of(path: Path) -> str:
@@ -46,9 +53,12 @@ def sha256_of(path: Path) -> str:
     return digest.hexdigest()
 
 
-def check_split(name: str) -> tuple[int, list[str]]:
+def check_split(name: str) -> tuple[int, list[str], str | None]:
     directory = CACHE_ROOT / name
     failures: list[str] = []
+
+    if not (directory / "manifest.json").is_file():
+        return 0, [f"no manifest under {directory}"], None
 
     manifest = json.loads((directory / "manifest.json").read_text())
     cls = np.load(directory / "cls.npy", mmap_mode="r")
@@ -88,19 +98,21 @@ def check_split(name: str) -> tuple[int, list[str]]:
             f"imglist sha256 {got[:12]} != recorded {manifest['imglist_sha256'][:12]}"
         )
 
-    return len(cls), failures
+    return len(cls), failures, manifest.get("openood_repo_commit")
 
 
 def main() -> int:
     total = 0
     all_failures: dict[str, list[str]] = {}
+    openood_commits: dict[str, str | None] = {}
 
     header = f"{'split':<16}{'rows':>8}{'expected':>10}  status"
     print(header)
     print("-" * len(header))
 
     for name in sorted(EXPECTED_ROWS):
-        rows, failures = check_split(name)
+        rows, failures, openood_commit = check_split(name)
+        openood_commits[name] = openood_commit
         total += rows
         print(f"{name:<16}{rows:>8}{EXPECTED_ROWS[name]:>10}  "
               f"{'OK' if not failures else 'FAIL'}")
@@ -112,13 +124,29 @@ def main() -> int:
     print(f"{'TOTAL':<16}{total:>8}{EXPECTED_TOTAL:>10}  "
           f"{'OK' if total_ok else 'FAIL'}")
 
-    if all_failures:
+    commit_failures: list[str] = []
+    missing = sorted(n for n, c in openood_commits.items() if not c)
+    if missing:
+        commit_failures.append(f"no openood_repo_commit recorded: {', '.join(missing)}")
+    distinct = sorted({c for c in openood_commits.values() if c})
+    if len(distinct) > 1:
+        commit_failures.append(f"splits disagree on the openood commit: {distinct}")
+    for commit in distinct:
+        if not commit.startswith(EXPECTED_OPENOOD_COMMIT):
+            commit_failures.append(f"openood commit {commit[:12]} is not {EXPECTED_OPENOOD_COMMIT}")
+    shown = distinct[0][:12] if len(distinct) == 1 else "MIXED"
+    print(f"{'OPENOOD':<16}{shown:>12}{EXPECTED_OPENOOD_COMMIT:>10}  "
+          f"{'OK' if not commit_failures else 'FAIL'}")
+
+    if all_failures or commit_failures:
         print("\nFAILURES")
+        for line in commit_failures:
+            print(f"  openood: {line}")
         for name, failures in all_failures.items():
             for line in failures:
                 print(f"  {name}: {line}")
 
-    return 0 if total_ok and not all_failures else 1
+    return 0 if total_ok and not all_failures and not commit_failures else 1
 
 
 if __name__ == "__main__":
