@@ -147,6 +147,45 @@ def sha256_of_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def weights_pin(variant: str, checkpoints_dir: Path | None = None) -> dict:
+    """Content-addressed pin for the weights the backbone loaded.
+
+    torch.hub unpacks a zipball, so there is no revision to record; the cached
+    checkpoint's hash is the pin. The match is exact, not a substring, because
+    ``dinov2_vitb14`` is a substring of ``dinov2_vitb14_reg_pretrain.pth``.
+    Several matches hash to None rather than picking one.
+
+    ``checkpoints_dir`` overrides the search directory, for testing.
+    """
+    checkpoints = (
+        checkpoints_dir
+        if checkpoints_dir is not None
+        else Path(torch.hub.get_dir()) / "checkpoints"
+    )
+    matches = (
+        sorted(
+            p
+            for p in checkpoints.glob("*.pth")
+            if p.stem in (variant, f"{variant}_pretrain")
+        )
+        if checkpoints.is_dir()
+        else []
+    )
+    resolved = matches[0] if len(matches) == 1 else None
+    if resolved is not None:
+        status = "hashed"
+    elif matches:
+        status = "ambiguous"
+    else:
+        status = "not-found"
+    return {
+        "weights_file": str(resolved) if resolved is not None else None,
+        "weights_sha256": sha256_of_file(resolved) if resolved is not None else None,
+        "weights_pin_status": status,
+        "weights_candidates": [p.name for p in matches],
+    }
+
+
 def library_versions() -> dict:
     import torchvision
 
@@ -261,6 +300,16 @@ def main() -> None:
     print(f"[extract] {len(dataset)} images, variant={args.variant}, device={device}", file=sys.stderr)
 
     model = load_dinov2(args.variant, device)
+
+    # After the hub load, which populates the cache; before the extraction.
+    # The arrays are written before the manifest, so refusing there is too late.
+    pin = weights_pin(args.variant)
+    if pin["weights_pin_status"] != "hashed":
+        raise RuntimeError(
+            f"Refusing to extract: weights pin is {pin['weights_pin_status']} "
+            f"for {args.variant}. Candidates: {pin['weights_candidates']}"
+        )
+
     cls_arr, patchmean_arr, labels_arr, filelist = extract(model, loader, device, use_registers)
 
     sanity_check_no_nan_inf(cls_arr, patchmean_arr)
@@ -281,8 +330,11 @@ def main() -> None:
         "backbone_variant": args.variant,
         "uses_registers": use_registers,
         "weights_source": f"torch.hub facebookresearch/dinov2:{args.variant}",
+        **pin,
         "input_resolution": INPUT_RES,
         "resize_mode": "direct-resize-224",
+        "resize_is_deviation": True,
+        "resize_reference_transform": "resize-256-then-center-crop-224",
         "interpolation": "bicubic",
         "normalization_mean": list(args.norm_mean),
         "normalization_std": list(args.norm_std),
