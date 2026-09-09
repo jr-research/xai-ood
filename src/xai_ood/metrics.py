@@ -34,13 +34,12 @@ difference would look like a real result.
   which at least 95% of ID samples are still accepted as ID. This one is a
   choice. The alternative is to interpolate between the two order statistics
   bracketing the target, which hits the target TPR exactly at the cost of a
-  threshold no sample achieved; OpenOOD's implementation differs from the rule
-  used here. The declared procedure requires *that* the threshold be recomputed
-  inside each replicate but says nothing about *how* it is read off a finite
-  sample, so this rule is not derived from it. The size of the disagreement on
-  an identical score array is what the OpenOOD cross-check in the scoring run
-  measures; that number lives in the cross-check record, and this module does
-  not carry a copy of it.
+  threshold no sample achieved. The declared procedure requires *that* the
+  threshold be recomputed inside each replicate but says nothing about *how* it
+  is read off a finite sample, so this rule is not derived from it. Whether
+  OpenOOD reads the same threshold from an identical score array is what the
+  OpenOOD cross-check measures; that number lives in the cross-check record,
+  and this module does not carry a copy of it.
 """
 
 from __future__ import annotations
