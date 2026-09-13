@@ -83,3 +83,43 @@ def test_save_figure_writes_pdf_and_png(tmp_path):
     written = style.save_figure(fig, tmp_path / "nested" / "severity_curve")
     assert [p.suffix for p in written] == [".pdf", ".png"]
     assert all(p.exists() and p.stat().st_size > 0 for p in written)
+
+
+def test_dataset_colour_is_stable_and_registered():
+    # Every split the Phase 2 runs actually produce has a registered colour, so
+    # no figure silently falls back for a split that exists.
+    for split in (
+        "cifar10_train", "cifar10_test", "cifar10_val", "csid",
+        "cifar100", "tin", "mnist", "svhn", "texture", "places365",
+    ):
+        assert split in style.DATASET_COLORS
+        assert style.dataset_color(split) == style.DATASET_COLORS[split]
+
+
+def test_dataset_palette_deviations_are_declared():
+    # A colour outside Okabe-Ito is allowed, but only if it is named in
+    # PALETTE_EXTENSIONS. An undeclared one is drift and this test is what makes
+    # the distinction checkable rather than a matter of comment-reading.
+    allowed = set(style.OKABE_ITO) | set(style.PALETTE_EXTENSIONS)
+    undeclared = sorted(set(style.DATASET_COLORS.values()) - allowed)
+    assert undeclared == [], f"undeclared non-palette colours: {undeclared}"
+    # And nothing is declared as an extension that is not actually used, which
+    # would let a real deviation hide behind a stale allowance.
+    unused = sorted(set(style.PALETTE_EXTENSIONS) - set(style.DATASET_COLORS.values()))
+    assert unused == [], f"declared but unused extensions: {unused}"
+
+
+def test_dataset_fallback_is_deterministic_not_salted():
+    a = style.dataset_color("a_split_never_registered")
+    b = style.dataset_color("a_split_never_registered")
+    assert a == b
+    assert a in style.OKABE_ITO
+
+
+def test_neutrals_are_greys_and_not_data_colours():
+    # A neutral must be achromatic, so it cannot be mistaken for a series, and
+    # must not collide with the categorical palette.
+    for hexval in style.NEUTRALS:
+        r, g, b = (int(hexval[i:i + 2], 16) for i in (1, 3, 5))
+        assert r == g == b, f"{hexval} is not achromatic"
+        assert hexval not in style.OKABE_ITO

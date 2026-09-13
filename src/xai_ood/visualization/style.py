@@ -39,6 +39,9 @@ __all__ = [
     "AUROC_LABEL",
     "FPR95_LABEL",
     "OKABE_ITO",
+    "DATASET_COLORS",
+    "PALETTE_EXTENSIONS",
+    "NEUTRALS",
     "SEQUENTIAL_CMAP",
     "DIVERGING_CMAP",
     "BASE_FONT_SIZE",
@@ -49,6 +52,7 @@ __all__ = [
     "format_auroc",
     "to_display_scale",
     "series_color",
+    "dataset_color",
     "apply_style",
     "new_figure",
     "save_figure",
@@ -162,6 +166,61 @@ _SERIES_COLOR: dict[str, str] = {
 # would have meant either re-assigning existing series or leaving the
 # colourblind-safe set, and the whole point of the primary/variant pairing is
 # that the two *should* read as the same series under two treatments.
+
+
+#: Stable colour per dataset split. A separate registry from ``_SERIES_COLOR``
+#: because the two are keyed on different things and a figure never mixes them:
+#: one plots scorers, the other plots the data those scorers were run on.
+#:
+#: **Two of these are deliberately outside Okabe-Ito, and that is a considered
+#: deviation rather than drift.** There are ten splits and eight slots, and the
+#: two that leave the set are the two that should not compete for attention: the
+#: held-out in-distribution split, drawn neutral grey, and Tiny ImageNet, whose
+#: brown is taken from Colorbrewer Dark2 and stays distinguishable under all
+#: three common forms of colour blindness. Registering them here rather than
+#: leaving them in a plotting script is the point of this block: the deviation is
+#: now visible in the place someone would look for it.
+#:
+#: ``cifar10_train`` and ``cifar10_test`` share black on purpose. They are the
+#: same distribution under two roles, and no planned figure draws both.
+DATASET_COLORS: dict[str, str] = {
+    "cifar10_train": OKABE_ITO[7],   # black
+    "cifar10_test": OKABE_ITO[7],    # black, same distribution as train
+    "cifar10_val": "#7F7F7F",        # neutral grey, outside the palette
+    "csid": OKABE_ITO[1],            # sky blue, the covariate-shifted grid
+    "cifar100": OKABE_ITO[0],        # orange, near-OOD
+    "tin": "#A6761D",                # brown, outside the palette, near-OOD
+    "mnist": OKABE_ITO[2],           # bluish green, far-OOD
+    "svhn": OKABE_ITO[5],            # vermillion, far-OOD
+    "texture": OKABE_ITO[4],         # blue, far-OOD
+    "places365": OKABE_ITO[6],       # reddish purple, far-OOD
+}
+
+#: Colours in use that are not from Okabe-Ito, named so a checker can tell a
+#: registered deviation apart from an unregistered one.
+PALETTE_EXTENSIONS: tuple[str, ...] = ("#7F7F7F", "#A6761D")
+
+#: Neutral greys for annotation, captions and secondary axis text. These are not
+#: data colours and must never encode a variable. They are declared here because
+#: three separate figure scripts had each invented their own grey, one of them
+#: four different ones in a single file, which is the same drift the palette
+#: block exists to prevent and was invisible while no registry named them.
+NEUTRALS: tuple[str, ...] = (
+    "#333333",  # body and axis text
+    "#666666",  # captions, secondary annotation, de-emphasised marks
+)
+
+
+def dataset_color(name: str) -> str:
+    """Colour for a named dataset split, stable across figures and runs.
+
+    Same deterministic fallback as :func:`series_color`, so an unregistered
+    split still gets the same colour on every machine and every run.
+    """
+    if name in DATASET_COLORS:
+        return DATASET_COLORS[name]
+    slot = sum(ord(c) for c in name) % len(OKABE_ITO)
+    return OKABE_ITO[slot]
 
 
 def series_color(name: str) -> str:
