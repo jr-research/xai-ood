@@ -6,12 +6,19 @@ a forking path: the tier assignment would then be a function of what won, and
 the report would read as a narrowing of attention onto whatever happened to
 look good.
 
-**Tiering governs narrative, not computation.** All thirteen configurations run,
+**Tiering governs narrative, not computation.** All fifteen configurations run,
 every one is scored on every protocol and every OOD group, and every one appears
 in the results tables. A tier says how much prose a configuration earns,
 nothing else. Nothing is thrown away, and promoting a configuration
 later is a one-field change with an explicit record rather than a silent
 reweighting of the story.
+
+The tier *vocabulary* was fixed on 2026-08-31 and has not changed since. The
+tier *assignment* has: two configurations were added on 2026-09-13, after
+results existed, and were assigned ``appendix``. That amendment is dated in
+three places that have to agree, which is the point of dating it: here, the
+``methods.gaussian`` module docstring, and the transcribed map in
+``tests/test_reporting_tiers.py``.
 
 The four tiers
 --------------
@@ -31,7 +38,12 @@ The four tiers
     A table or a figure and a sentence. The normalization ablations that are not
     themselves a primary claim, and the shrinkage on/off ablation, which is a
     runtime flag rather than a configuration and so is tiered here by name
-    (``SHRINKAGE_ABLATION_TIER``) rather than by a field.
+    (``SHRINKAGE_ABLATION_TIER``) rather than by a field. **Also the two
+    normalised Gaussian Full cells added on 2026-09-13**, which are normalisation
+    ablations by the same definition and are additionally post-hoc; this is the
+    lowest tier that still guarantees a configuration reaches the tables, which
+    is the reason they are here and not higher. See the ``methods.gaussian``
+    module docstring.
 ``conditional``
     Runs unconditionally; is *narrated* only if a pre-declared trigger fires.
     One member: ``pca_residual_class_mean_whitened``, the pre-declared

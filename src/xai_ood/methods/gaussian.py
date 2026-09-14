@@ -1,6 +1,7 @@
-"""The six Gaussian-family configurations, built on one covariance code path.
+"""The eight Gaussian-family configurations, built on one covariance code path.
 
-Four cells of the 2x2 factorial, plus RMD and RMD++::
+Four cells of the 2x2 factorial, plus RMD and RMD++, plus the two normalised
+Full cells added on 2026-09-13 (see "Added after the results existed" below)::
 
                     |  Diagonal                   |  Full (pooled)
     ----------------+-----------------------------+---------------------------
@@ -12,6 +13,10 @@ Four cells of the 2x2 factorial, plus RMD and RMD++::
 
     rmd     = class_conditional_full - marginal_full   (Ren et al. 2021)
     rmd_pp  = the same, on L2-normalised embeddings    (Mueller & Hein 2025)
+
+    marginal_full_pp          = marginal_full          on L2-normalised features
+    class_conditional_full_pp = class_conditional_full on L2-normalised features
+                                (this one is Mahalanobis++ itself)
 
 The two cells of the **Full** column are literally RMD's two terms, so reporting
 them separately is a decomposition of a scorer already in the design rather
@@ -33,6 +38,30 @@ components of RMD rather than merely its cousins.
 RMD is a score, not a distance, and is routinely negative for ID samples. That
 is expected: it is the *excess* of class-specific deviation over generic
 unusualness. Do not clip it.
+
+Added after the results existed
+-------------------------------
+``marginal_full_pp`` and ``class_conditional_full_pp`` were added on
+**2026-09-13, after the first results existed**, prompted by reading Mueller and
+Hein 2025 in full. **They are not part of the pre-specified 2x2 factorial and
+must never be printed inside it.** The factorial is the four cells above and
+nothing else, and its two main effects and its interaction are computed from
+those four alone.
+
+They were added because the design already shipped the *derived* score on the
+normalised arm without either score it is derived from: ``rmd_pp`` is by
+construction ``class_conditional_full_pp - marginal_full_pp``, exactly as
+``rmd`` is the difference of the two unnormalised Full cells. The unnormalised
+arm carried that decomposition and the normalised arm did not. Completing it is
+the reason; where the completed cells land on a leaderboard is not.
+
+Both carry tier ``appendix``, the lowest tier that still guarantees a cell
+appears in the results tables, and the tier this project's declared vocabulary
+assigns to normalisation ablations that are not themselves a primary claim. A
+cell added after the results cannot be allowed to earn more narrative weight
+than one fixed before them. The tier assignment itself was fixed on 2026-08-31;
+these two entries are a dated amendment to it rather than part of it, and
+``tests/test_reporting_tiers.py`` marks them as such.
 """
 
 from __future__ import annotations
@@ -94,7 +123,7 @@ class GaussianConfig:
         return encode_hyperparams(self.hyperparams(shrinkage=shrinkage))
 
 
-#: The six configurations, in reporting order. Names match the keys in
+#: The eight configurations, in reporting order. Names match the keys in
 #: ``xai_ood.visualization.style._SERIES_COLOR`` so a scorer keeps one colour
 #: across every figure in the thesis.
 #:
@@ -103,7 +132,12 @@ class GaussianConfig:
 #: computed from exactly those four cells and nothing else. RMD and RMD++ are
 #: **secondary**: RMD is the difference of the two cells in the Full column, so
 #: the Full column already carries its decomposition, and the RMD/RMD++ contrast
-#: is a normalization ablation rather than a factor of the design. All six run.
+#: is a normalization ablation rather than a factor of the design. All eight run.
+#:
+#: The last two were added 2026-09-13, after results existed, at tier
+#: ``appendix``. See "Added after the results existed" in the module docstring:
+#: their date, their reason and the constraint on how they may be reported are
+#: recorded there rather than here, because that is the text a reader hits first.
 CONFIGURATIONS: tuple[GaussianConfig, ...] = (
     GaussianConfig("marginal_diagonal", False, True, False, False, reporting_tier="primary"),
     GaussianConfig("marginal_full", False, False, False, False, reporting_tier="primary"),
@@ -111,6 +145,9 @@ CONFIGURATIONS: tuple[GaussianConfig, ...] = (
     GaussianConfig("class_conditional_full", True, False, False, False, reporting_tier="primary"),
     GaussianConfig("rmd", True, False, True, False, reporting_tier="secondary"),
     GaussianConfig("rmd_pp", True, False, True, True, reporting_tier="secondary"),
+    # Post-hoc, 2026-09-13. Not cells of the factorial.
+    GaussianConfig("marginal_full_pp", False, False, False, True, reporting_tier="appendix"),
+    GaussianConfig("class_conditional_full_pp", True, False, False, True, reporting_tier="appendix"),
 )
 
 _BY_NAME: dict[str, GaussianConfig] = {c.name: c for c in CONFIGURATIONS}
@@ -121,7 +158,7 @@ def config_by_name(name: str) -> GaussianConfig:
         return _BY_NAME[name]
     except KeyError:
         raise KeyError(
-            f"unknown configuration {name!r}; the six are "
+            f"unknown configuration {name!r}; the eight are "
             f"{sorted(_BY_NAME)}"
         ) from None
 

@@ -58,6 +58,16 @@ DECLARED_TIERS = {
     "pca_residual_all_id_l2": "appendix",
     "pca_residual_class_mean_l2": "appendix",
     "pca_residual_class_mean_whitened": "conditional",
+    # AMENDMENT, 2026-09-13. Everything above this line is the 2026-08-31
+    # declaration as transcribed. These two configurations did not exist then:
+    # they were added after the first results existed, prompted by reading
+    # Mueller and Hein 2025, and were assigned the lowest tier that still
+    # guarantees a configuration reaches the results tables. The line is kept
+    # here rather than tidied away because a reader checking the
+    # pre-specification claim needs to see which entries postdate it, and a
+    # sorted map with no seam cannot show that.
+    "marginal_full_pp": "appendix",
+    "class_conditional_full_pp": "appendix",
 }
 
 
@@ -66,9 +76,29 @@ DECLARED_TIERS = {
 # --------------------------------------------------------------------------- #
 
 
-def test_there_are_thirteen_configurations_to_check():
-    """Guards the guard: a parametrised absence check passes on an empty set."""
-    assert len(ALL_CONFIGURATIONS) == 13, [c.name for c in ALL_CONFIGURATIONS]
+def test_there_are_fifteen_configurations_to_check():
+    """Guards the guard: a parametrised absence check passes on an empty set.
+
+    Thirteen until 2026-09-13, when the two post-hoc normalised Gaussian cells
+    were added at tier ``appendix``.
+    """
+    assert len(ALL_CONFIGURATIONS) == 15, [c.name for c in ALL_CONFIGURATIONS]
+
+
+def test_no_post_hoc_configuration_sits_above_the_appendix_tier():
+    """The constraint the post-hoc addition is reported under, as an assertion.
+
+    A cell added after the results may appear in the tables and may not earn
+    more narrative weight than a cell fixed before them. ``primary`` and
+    ``secondary`` are what "more narrative weight" means in this vocabulary, so
+    naming the post-hoc set here and checking its tier is the only part of that
+    constraint a test can carry. The rest lives in prose, where it belongs.
+    """
+    post_hoc = {"marginal_full_pp", "class_conditional_full_pp"}
+    actual = {c.name: c.reporting_tier for c in ALL_CONFIGURATIONS}
+    assert post_hoc <= set(actual), sorted(post_hoc - set(actual))
+    for name in sorted(post_hoc):
+        assert actual[name] == "appendix", (name, actual[name])
 
 
 @pytest.mark.parametrize("config", ALL_CONFIGURATIONS, ids=lambda c: c.name)
@@ -246,7 +276,7 @@ def test_the_shrinkage_ablation_is_tiered_by_name():
     """Shrinkage is a runtime flag on ``fit_covariance``, so it has no config.
 
     Declaring its tier as a module constant is what keeps the declared
-    thirteen-configurations-plus-one-ablation list complete: without it the
+    fifteen-configurations-plus-one-ablation list complete: without it the
     ablation would be the one reported thing with no tier anywhere.
     """
     assert SHRINKAGE_ABLATION_TIER in REPORTING_TIERS

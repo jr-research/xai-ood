@@ -277,7 +277,7 @@ def test_the_dump_carries_one_column_per_configuration_plus_the_control(driven):
     expected += [c.name for c in PCA_RESIDUAL_CONFIGURATIONS]
     expected += [f"{CONTROL_COLUMN}_{draw:02d}" for draw in range(CONTROL_DRAWS)]
     assert set(columns) == set(expected)
-    assert len(columns) == N_SCORERS + CONTROL_DRAWS == 33
+    assert len(columns) == N_SCORERS + CONTROL_DRAWS == 35
 
 
 def test_the_key_columns_are_null_valued_rather_than_absent(driven):
@@ -488,13 +488,13 @@ def test_the_control_column_rebuilds_bitwise_from_what_the_manifest_records(
 def test_every_fitted_column_still_names_the_row_it_was_computed_from(
     driven, cache, embeddings_in_dump_order
 ):
-    """Establishes: the sort permuted the embeddings with the keys, for all thirteen.
+    """Establishes: the sort permuted the embeddings with the keys, for all fifteen.
 
     The failure this exists for is silent: a permutation applied to the keys and
     not to the embeddings produces a plausible frame and wrong paired
     differences. Every check downstream of the sort inherits whatever order the
     sort produced, so crossing it from outside is the only way to see it. One
-    column checked and twelve assumed is the same gap one column wider.
+    column checked and fourteen assumed is the same gap one column wider.
     """
     train = np.load(cache["root"] / "cifar10_train" / "cls.npy")
     labels = np.load(cache["root"] / "cifar10_train" / "labels.npy")
@@ -504,7 +504,7 @@ def test_every_fitted_column_still_names_the_row_it_was_computed_from(
     rebuilt.update(
         {c.name: fit_pca_residual(c, train, labels) for c in PCA_RESIDUAL_CONFIGURATIONS}
     )
-    assert len(rebuilt) == N_SCORERS == 13
+    assert len(rebuilt) == N_SCORERS == 15
 
     for name, scorer in rebuilt.items():
         deviation = np.abs(

@@ -328,7 +328,7 @@ def test_every_scorer_in_both_frames_reached_the_result(pipeline):
     names = set(pipeline["result"].scorers)
     assert {"perfect_a", "perfect_b", "knn_unnormalized"} <= names
     assert {"marginal_diagonal", "marginal_full", "rmd", "rmd_pp"} <= names
-    assert len(names) == 6 + 1 + 2  # six Gaussian cells, one kNN, two probes
+    assert len(names) == 8 + 1 + 2  # eight Gaussian cells, one kNN, two probes
 
 
 def test_a_real_fitted_scorer_survives_the_whole_path(pipeline):

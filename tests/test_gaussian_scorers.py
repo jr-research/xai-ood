@@ -293,7 +293,13 @@ def test_the_openood_seam_adapter_is_the_only_negation():
 # --------------------------------------------------------------------------- #
 
 
-def test_there_are_exactly_six_configurations_with_the_expected_names():
+def test_there_are_exactly_eight_configurations_with_the_expected_names():
+    """The last two were added 2026-09-13 and are post-hoc; see the module docstring.
+
+    The order is pinned because the first six are the pre-specified set and the
+    last two are not, so a reader can tell which is which by where the list
+    stops. An addition inserted among the first six would erase that.
+    """
     assert [c.name for c in CONFIGURATIONS] == [
         "marginal_diagonal",
         "marginal_full",
@@ -301,7 +307,32 @@ def test_there_are_exactly_six_configurations_with_the_expected_names():
         "class_conditional_full",
         "rmd",
         "rmd_pp",
+        "marginal_full_pp",
+        "class_conditional_full_pp",
     ]
+
+
+def test_the_two_normalised_full_cells_are_rmd_pps_two_terms():
+    """Establishes the identity that is the whole reason they were added.
+
+    ``rmd_pp`` is by construction ``class_conditional_full_pp -
+    marginal_full_pp``. Asserting it here is what makes the normalised arm's
+    decomposition a checked fact rather than a claim in a docstring, and it is
+    the normalised counterpart of the same identity the unnormalised Full column
+    already carries.
+    """
+    rng = np.random.default_rng(20260914)
+    x = rng.normal(size=(400, 12))
+    labels = rng.integers(0, 4, size=400)
+    z = rng.normal(size=(60, 12))
+
+    fitted = {
+        name: fit_scorer(config_by_name(name), x, labels).score(z)
+        for name in ("rmd_pp", "class_conditional_full_pp", "marginal_full_pp")
+    }
+    assert np.abs(
+        fitted["class_conditional_full_pp"] - fitted["marginal_full_pp"] - fitted["rmd_pp"]
+    ).max() == 0.0
 
 
 def test_every_configuration_has_a_stable_colour_in_the_thesis_palette():
@@ -501,7 +532,7 @@ def test_all_six_run_end_to_end_on_synthetic_data():
 
     for shrinkage in (False, True):
         scorers = fit_all_scorers(x, labels, shrinkage=shrinkage)
-        assert len(scorers) == 6
+        assert len(scorers) == 8
         out = score_frame(index, z, scorers)
         assert len(out) == n_eval
         for name in scorers:

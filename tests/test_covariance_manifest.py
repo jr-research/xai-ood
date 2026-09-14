@@ -36,8 +36,10 @@ def test_fragment_covers_every_covariance_including_rmd_backgrounds():
     fragment = covariance_manifest(scorers)
 
     # Four plain cells contribute one covariance each; rmd and rmd_pp contribute
-    # a primary and a background each. Eight in total.
-    assert fragment["summary"]["n_covariances"] == 8
+    # a primary and a background each; the two normalised Full cells added
+    # 2026-09-13 contribute one each, both of which duplicate a matrix rmd_pp
+    # already fits. Ten entries in total, over six distinct matrices.
+    assert fragment["summary"]["n_covariances"] == 10
     assert "rmd:background" in fragment["covariances"]
     assert "rmd_pp:background" in fragment["covariances"]
     assert set(fragment["scorers"]) == set(scorers)
@@ -76,7 +78,7 @@ def test_shrinkage_intensities_are_recorded_only_where_shrinkage_ran():
     assert off["summary"]["shrinkage_intensities"] == {}
 
     on = covariance_manifest(fit_all_scorers(x, labels, shrinkage=True))
-    assert len(on["summary"]["shrinkage_intensities"]) == 8
+    assert len(on["summary"]["shrinkage_intensities"]) == 10
     for name, delta in on["summary"]["shrinkage_intensities"].items():
         assert 0.0 <= delta <= 1.0, name
         assert on["covariances"][name]["shrinkage_target"] == SHRINKAGE_TARGET
@@ -147,7 +149,7 @@ def test_covariance_manifest_skips_scorers_that_have_no_covariance():
     x, labels = fixture()
     mixed = {**fit_all_scorers(x, labels), **fit_all_knn(x, k=5)}
     fragment = covariance_manifest(mixed)
-    assert fragment["summary"]["n_covariances"] == 8  # the Gaussian ones only
+    assert fragment["summary"]["n_covariances"] == 10  # the Gaussian ones only
     assert not any("knn" in k for k in fragment["covariances"])
 
 
@@ -158,11 +160,11 @@ def test_run_manifest_covers_every_family_through_their_own_diagnostics():
     scorers = {**fit_all_scorers(x, labels, shrinkage=True), **fit_all_knn(x, k=5)}
     fragment = run_manifest(scorers, seed=20260825, repo_commit="0" * 40, openood_commit="8d44375e")
 
-    assert fragment["n_scorers"] == 8
+    assert fragment["n_scorers"] == 10
     assert set(fragment["scorers"]) == set(scorers)
     assert fragment["scorers"]["knn_normalized"]["n_reference"] == len(x)
     assert fragment["scorers"]["knn_normalized"]["k"] == 5
-    assert fragment["covariance_summary"]["n_covariances"] == 8
+    assert fragment["covariance_summary"]["n_covariances"] == 10
 
 
 def test_run_manifest_omits_the_covariance_section_when_there_is_none():
@@ -344,13 +346,13 @@ def test_covariance_manifest_tests_the_type_not_the_attribute_name():
     mixed = [*fit_all_scorers(x, labels).values(), PcaResidualScorer()]
 
     fragment = covariance_manifest(mixed)
-    assert fragment["summary"]["n_covariances"] == 8  # the Gaussian ones only
+    assert fragment["summary"]["n_covariances"] == 10  # the Gaussian ones only
     assert not any("pca" in k for k in fragment["covariances"])
 
     run = run_manifest(
         mixed, seed=1, repo_commit="a" * 40, openood_commit="8d44375e"
     )
-    assert run["n_scorers"] == 7
+    assert run["n_scorers"] == 9
     assert run["scorers"]["pca_residual_all_id"]["d"] == 41
 
 
@@ -391,7 +393,7 @@ class _StubConfig:
 
 
 def test_manifest_reports_how_many_covariances_are_actually_distinct():
-    """Eight entries, six distinct matrices, and the manifest says both.
+    """Ten entries, six distinct matrices, and the manifest says both.
 
     `rmd:primary` is bit-identical to `class_conditional_full:primary`, and
     `rmd:background` to `marginal_full:primary` -- RMD's two terms *are* the two
@@ -400,7 +402,15 @@ def test_manifest_reports_how_many_covariances_are_actually_distinct():
     of `condition_numbers` sees the same number twice under two names and cannot
     tell that from two genuinely different matrices that happen to agree.
 
-    Eight is still what gets reported: each entry records what a scorer actually
+    **The gap widened on 2026-09-13 and did not change the distinct count**,
+    which is the check worth having here. The two normalised Full cells added
+    then are the same two matrices `rmd_pp` already fits as its primary and its
+    background, so they add two entries and zero distinct matrices: eight
+    entries over six matrices became ten over the same six. That is the
+    normalised arm's decomposition being made visible rather than a new fit, and
+    a distinct count that moved would have said the opposite.
+
+    Ten is still what gets reported: each entry records what a scorer actually
     used. `n_distinct_covariances` says how many underlying matrices that is.
 
     Mutation killed: reporting `n_distinct_covariances == n_covariances`.
@@ -409,14 +419,14 @@ def test_manifest_reports_how_many_covariances_are_actually_distinct():
     fragment = covariance_manifest(fit_all_scorers(x, labels))
     summary = fragment["summary"]
 
-    assert summary["n_covariances"] == 8
+    assert summary["n_covariances"] == 10
     assert summary["n_distinct_covariances"] == 6
 
     covs = {
         name: entry
         for name, entry in fragment["covariances"].items()
     }
-    assert len(covs) == 8
+    assert len(covs) == 10
 
 
 def test_there_is_exactly_one_manifest_writer():

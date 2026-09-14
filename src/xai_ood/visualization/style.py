@@ -126,6 +126,13 @@ _SERIES_COLOR: dict[str, str] = {
     # relative variants
     "rmd": OKABE_ITO[5],
     "rmd_pp": OKABE_ITO[6],
+    # The two normalised Full cells, added 2026-09-13 and post-hoc. Each takes
+    # its unnormalised parent's colour rather than a fresh slot, on the same
+    # rule the PCA-residual variants follow below: a variant stays visually
+    # attached to the cell it varies, so a reader sees a normalisation pair
+    # rather than two unrelated series.
+    "marginal_full_pp": OKABE_ITO[1],
+    "class_conditional_full_pp": OKABE_ITO[4],
     # other families
     "knn_normalized": OKABE_ITO[3],  # Sun et al.'s canonical form, so it keeps
     "knn_unnormalized": OKABE_ITO[7],  # the family colour; the ablation differs

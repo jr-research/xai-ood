@@ -418,7 +418,7 @@ def test_knn_and_gaussian_scorers_dump_together_in_one_aligned_frame():
     labels = np.array([0] * 150 + [1] * 150)
 
     scorers = {**fit_all_scorers(ref, labels), **fit_all_knn(ref, k=5)}
-    assert len(scorers) == 8
+    assert len(scorers) == 10
 
     n = 12
     z = rng.normal(scale=5.0, size=(n, 3))
