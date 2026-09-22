@@ -439,8 +439,8 @@ def kendall_tau_b(a: np.ndarray, b: np.ndarray) -> float:
 def leaderboard_churn_rows(objs) -> list[list]:
     """Per-dataset method ranking against the group-average ranking.
 
-    The supervisor raised within-group differences as a practical-applicability
-    question. This is that question in the form a practitioner asks it: if you pick a
+    Within-group differences are a practical-applicability question. This is that
+    question in the form a practitioner asks it: if you pick a
     detector off the group leaderboard, is it the one you would have picked had you
     looked at the single dataset you actually deploy on? The paired difference between
     the group's winner and the dataset's winner carries an interval, because a winner
