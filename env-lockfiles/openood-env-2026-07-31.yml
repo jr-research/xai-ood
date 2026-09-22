@@ -1,4 +1,4 @@
-name: xai-ood
+name: openood
 channels:
   - conda-forge
 dependencies:

@@ -1,2 +1,7 @@
+# Installer constraints, not a full lockfile. These two packages are the only
+# ones pinned here, because they are the only ones that needed holding during
+# installation. The version of record for each environment is its own YAML
+# export: environment.yml for xai-ood, env-lockfiles/openood-env-2026-07-31.yml
+# for openood.
 numpy==1.26.4
 opencv-python==5.0.0.93
