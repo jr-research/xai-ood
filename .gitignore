@@ -22,6 +22,12 @@ results/runs/**
 !results/runs/**/run_metadata.json
 !results/runs/.gitkeep
 
+# The analysis scripts write their tables and figures beside themselves, so
+# running one must not dirty the tree. The scripts and their docs are tracked.
+analysis/*
+!analysis/*.py
+!analysis/*.md
+
 # Notebooks: exploratory only, don't track outputs
 .ipynb_checkpoints/
 *.nbconvert.ipynb
