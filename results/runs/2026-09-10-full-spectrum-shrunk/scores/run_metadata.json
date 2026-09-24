@@ -1,0 +1,1569 @@
+{
+  "control": {
+    "basis_seed": 20260909,
+    "columns": [
+      "control_random_subspace_residual_00",
+      "control_random_subspace_residual_01",
+      "control_random_subspace_residual_02",
+      "control_random_subspace_residual_03",
+      "control_random_subspace_residual_04",
+      "control_random_subspace_residual_05",
+      "control_random_subspace_residual_06",
+      "control_random_subspace_residual_07",
+      "control_random_subspace_residual_08",
+      "control_random_subspace_residual_09",
+      "control_random_subspace_residual_10",
+      "control_random_subspace_residual_11",
+      "control_random_subspace_residual_12",
+      "control_random_subspace_residual_13",
+      "control_random_subspace_residual_14",
+      "control_random_subspace_residual_15",
+      "control_random_subspace_residual_16",
+      "control_random_subspace_residual_17",
+      "control_random_subspace_residual_18",
+      "control_random_subspace_residual_19"
+    ],
+    "construction": "orthonormal basis from the QR factorisation of a seeded Gaussian matrix, residual taken about the same centre as the scorer it matches",
+    "d": 550,
+    "d_source": "pca_residual_all_id",
+    "draws": 20,
+    "draws_default": 20,
+    "n_residual_directions": 218,
+    "read_as": "a range, not a test: the matched scorer's value is reported against the minimum, median and maximum over the draws, with no rank statistic and no p-value",
+    "seed_derivation": "numpy default_rng([basis_seed, draw_index])"
+  },
+  "covariance_summary": {
+    "all_symmetric": true,
+    "condition_number_max": 13042.021416134528,
+    "condition_numbers": {
+      "class_conditional_diagonal:primary": 180.32968768448714,
+      "class_conditional_full:primary": 2372.208280931776,
+      "marginal_diagonal:primary": 570.4830270486419,
+      "marginal_full:primary": 13042.021416134528,
+      "rmd:background": 13042.021416134528,
+      "rmd:primary": 2372.208280931776,
+      "rmd_pp:background": 12615.59621025191,
+      "rmd_pp:primary": 2388.1390165943276
+    },
+    "n_covariances": 8,
+    "n_distinct_covariances": 6,
+    "shrinkage_intensities": {
+      "class_conditional_diagonal:primary": 0.006828914619402708,
+      "class_conditional_full:primary": 0.006828914619402708,
+      "marginal_diagonal:primary": 0.0024670852338171006,
+      "marginal_full:primary": 0.0024670852338171006,
+      "rmd:background": 0.0024670852338171006,
+      "rmd:primary": 0.006828914619402708,
+      "rmd_pp:background": 0.002489192625666011,
+      "rmd_pp:primary": 0.006835490290362547
+    }
+  },
+  "covariances": {
+    "class_conditional_diagonal:primary": {
+      "condition_number": 180.32968768448714,
+      "diagonal": true,
+      "eigenvalue_max": 4.06468832781341,
+      "eigenvalue_min": 0.02254031701604879,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "class_conditional_pooled",
+      "n_classes": 10,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "class_conditional_diagonal:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.006828914619402708,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 1679.2083006473256
+    },
+    "class_conditional_full:primary": {
+      "condition_number": 2372.208280931776,
+      "diagonal": false,
+      "eigenvalue_max": 35.4199425804203,
+      "eigenvalue_min": 0.014931211085102425,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "class_conditional_pooled",
+      "n_classes": 10,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "class_conditional_full:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.006828914619402708,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 1679.2083006473256
+    },
+    "marginal_diagonal:primary": {
+      "condition_number": 570.4830270486419,
+      "diagonal": true,
+      "eigenvalue_max": 8.511445787754926,
+      "eigenvalue_min": 0.014919717825416045,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "marginal",
+      "n_classes": 0,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "marginal_diagonal:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.0024670852338171006,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 2098.39694725422
+    },
+    "marginal_full:primary": {
+      "condition_number": 13042.021416134528,
+      "diagonal": false,
+      "eigenvalue_max": 87.91348344512988,
+      "eigenvalue_min": 0.006740786618887964,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "marginal",
+      "n_classes": 0,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "marginal_full:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.0024670852338171006,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 2098.39694725422
+    },
+    "rmd:background": {
+      "condition_number": 13042.021416134528,
+      "diagonal": false,
+      "eigenvalue_max": 87.91348344512988,
+      "eigenvalue_min": 0.006740786618887964,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "marginal",
+      "n_classes": 0,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "rmd:background",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.0024670852338171006,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 2098.39694725422
+    },
+    "rmd:primary": {
+      "condition_number": 2372.208280931776,
+      "diagonal": false,
+      "eigenvalue_max": 35.4199425804203,
+      "eigenvalue_min": 0.014931211085102425,
+      "is_symmetric": true,
+      "l2_normalized": false,
+      "model": "class_conditional_pooled",
+      "n_classes": 10,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "rmd:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.006828914619402708,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 1679.2083006473256
+    },
+    "rmd_pp:background": {
+      "condition_number": 12615.59621025191,
+      "diagonal": false,
+      "eigenvalue_max": 0.03785397960679469,
+      "eigenvalue_min": 3.000570006832742e-06,
+      "is_symmetric": true,
+      "l2_normalized": true,
+      "model": "marginal",
+      "n_classes": 0,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "rmd_pp:background",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.002489192625666011,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 0.9236381760347874
+    },
+    "rmd_pp:primary": {
+      "condition_number": 2388.1390165943276,
+      "diagonal": false,
+      "eigenvalue_max": 0.015743904250347024,
+      "eigenvalue_min": 6.592540945459305e-06,
+      "is_symmetric": true,
+      "l2_normalized": true,
+      "model": "class_conditional_pooled",
+      "n_classes": 10,
+      "n_features": 768,
+      "n_samples": 50000,
+      "name": "rmd_pp:primary",
+      "raw_is_symmetric": true,
+      "raw_max_asymmetry": 0.0,
+      "samples_per_dimension": 65.10416666666667,
+      "shrinkage": true,
+      "shrinkage_intensity": 0.006835490290362547,
+      "shrinkage_target": "ledoit_wolf_2004_jmva_scaled_identity",
+      "trace": 0.7399333080455097
+    }
+  },
+  "degeneracy": {
+    "pca_residual_all_id": {
+      "d": 550,
+      "degenerate": false,
+      "n_features": 768,
+      "n_residual_directions": 218,
+      "n_scored": 159000,
+      "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+      "remedy": null,
+      "rho_centred_norm": -0.1281599533567893,
+      "rho_plain_norm": -0.33458943227627985,
+      "row_set": "id_test_and_csid",
+      "row_sets": {
+        "all_evaluation": {
+          "d": 550,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 218,
+          "n_scored": 312660,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.4044641198507561,
+          "rho_plain_norm": -0.12664794174894844,
+          "scorer": "pca_residual_all_id",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test": {
+          "d": 550,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 218,
+          "n_scored": 9000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.17870528424739035,
+          "rho_plain_norm": -0.08601732873272422,
+          "scorer": "pca_residual_all_id",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test_and_csid": {
+          "d": 550,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 218,
+          "n_scored": 159000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.1281599533567893,
+          "rho_plain_norm": -0.33458943227627985,
+          "scorer": "pca_residual_all_id",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_train": {
+          "d": 550,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 218,
+          "n_scored": 50000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.1664861849270105,
+          "rho_plain_norm": -0.10267392176369358,
+          "scorer": "pca_residual_all_id",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        }
+      },
+      "scorer": "pca_residual_all_id",
+      "subspace": "all_id",
+      "threshold": 0.95,
+      "threshold_applies_to": "rho_centred_norm",
+      "verdict": "subspace_structure"
+    },
+    "pca_residual_all_id_l2": {
+      "d": 551,
+      "degenerate": false,
+      "n_features": 768,
+      "n_residual_directions": 217,
+      "n_scored": 159000,
+      "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+      "remedy": null,
+      "rho_centred_norm": -0.5391513932149233,
+      "rho_plain_norm": -0.5434924248535022,
+      "row_set": "id_test_and_csid",
+      "row_sets": {
+        "all_evaluation": {
+          "d": 551,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 217,
+          "n_scored": 312660,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.2199385044950358,
+          "rho_plain_norm": -0.2326150256707052,
+          "scorer": "pca_residual_all_id_l2",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test": {
+          "d": 551,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 217,
+          "n_scored": 9000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.17173675347823153,
+          "rho_plain_norm": -0.18037361751901584,
+          "scorer": "pca_residual_all_id_l2",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test_and_csid": {
+          "d": 551,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 217,
+          "n_scored": 159000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.5391513932149233,
+          "rho_plain_norm": -0.5434924248535022,
+          "scorer": "pca_residual_all_id_l2",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_train": {
+          "d": 551,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 217,
+          "n_scored": 50000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.18633836897043937,
+          "rho_plain_norm": -0.19492862440110748,
+          "scorer": "pca_residual_all_id_l2",
+          "subspace": "all_id",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        }
+      },
+      "scorer": "pca_residual_all_id_l2",
+      "subspace": "all_id",
+      "threshold": 0.95,
+      "threshold_applies_to": "rho_centred_norm",
+      "verdict": "subspace_structure"
+    },
+    "pca_residual_class_mean": {
+      "d": 9,
+      "degenerate": false,
+      "n_features": 768,
+      "n_residual_directions": 759,
+      "n_scored": 159000,
+      "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+      "remedy": null,
+      "rho_centred_norm": 0.501896947157146,
+      "rho_plain_norm": 0.2477373650933078,
+      "row_set": "id_test_and_csid",
+      "row_sets": {
+        "all_evaluation": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 312660,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.7446154414972629,
+          "rho_plain_norm": 0.27176533546464626,
+          "scorer": "pca_residual_class_mean",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 9000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.5278170774956841,
+          "rho_plain_norm": 0.12906594182385936,
+          "scorer": "pca_residual_class_mean",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test_and_csid": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 159000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.501896947157146,
+          "rho_plain_norm": 0.2477373650933078,
+          "scorer": "pca_residual_class_mean",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_train": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 50000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.5285138945959816,
+          "rho_plain_norm": 0.12496429634656174,
+          "scorer": "pca_residual_class_mean",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        }
+      },
+      "scorer": "pca_residual_class_mean",
+      "subspace": "class_mean",
+      "threshold": 0.95,
+      "threshold_applies_to": "rho_centred_norm",
+      "verdict": "subspace_structure"
+    },
+    "pca_residual_class_mean_l2": {
+      "d": 9,
+      "degenerate": false,
+      "n_features": 768,
+      "n_residual_directions": 759,
+      "n_scored": 159000,
+      "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+      "remedy": null,
+      "rho_centred_norm": -0.38761071966140853,
+      "rho_plain_norm": -0.39454930735997873,
+      "row_set": "id_test_and_csid",
+      "row_sets": {
+        "all_evaluation": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 312660,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.14598980181676002,
+          "rho_plain_norm": -0.16039881377814685,
+          "scorer": "pca_residual_class_mean_l2",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 9000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.09518671918337514,
+          "rho_plain_norm": -0.10941975221505867,
+          "scorer": "pca_residual_class_mean_l2",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test_and_csid": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 159000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.38761071966140853,
+          "rho_plain_norm": -0.39454930735997873,
+          "scorer": "pca_residual_class_mean_l2",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_train": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 50000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": -0.09817767650371909,
+          "rho_plain_norm": -0.1125064524667946,
+          "scorer": "pca_residual_class_mean_l2",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        }
+      },
+      "scorer": "pca_residual_class_mean_l2",
+      "subspace": "class_mean",
+      "threshold": 0.95,
+      "threshold_applies_to": "rho_centred_norm",
+      "verdict": "subspace_structure"
+    },
+    "pca_residual_class_mean_whitened": {
+      "d": 9,
+      "degenerate": false,
+      "n_features": 768,
+      "n_residual_directions": 759,
+      "n_scored": 159000,
+      "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+      "remedy": null,
+      "rho_centred_norm": 0.08201266922235365,
+      "rho_plain_norm": -0.15031349323200016,
+      "row_set": "id_test_and_csid",
+      "row_sets": {
+        "all_evaluation": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 312660,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.5039529506349872,
+          "rho_plain_norm": -0.0279888136632043,
+          "scorer": "pca_residual_class_mean_whitened",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 9000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.2900354127823302,
+          "rho_plain_norm": -0.022745496478339462,
+          "scorer": "pca_residual_class_mean_whitened",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_test_and_csid": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 159000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.08201266922235365,
+          "rho_plain_norm": -0.15031349323200016,
+          "scorer": "pca_residual_class_mean_whitened",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        },
+        "id_train": {
+          "d": 9,
+          "degenerate": false,
+          "n_features": 768,
+          "n_residual_directions": 759,
+          "n_scored": 50000,
+          "note": "Pre-declared: rho >= threshold against the centred norm means this component is written up as a rescaled-norm score, not as subspace structure. The remedy is the separately labeled whitened variant (pca_residual_class_mean_whitened), never a silent substitution.",
+          "remedy": null,
+          "rho_centred_norm": 0.2795961759241905,
+          "rho_plain_norm": -0.04139489704708597,
+          "scorer": "pca_residual_class_mean_whitened",
+          "subspace": "class_mean",
+          "threshold": 0.95,
+          "threshold_applies_to": "rho_centred_norm",
+          "verdict": "subspace_structure"
+        }
+      },
+      "scorer": "pca_residual_class_mean_whitened",
+      "subspace": "class_mean",
+      "threshold": 0.95,
+      "threshold_applies_to": "rho_centred_norm",
+      "verdict": "subspace_structure"
+    }
+  },
+  "dry_run": false,
+  "dry_run_rows": null,
+  "embedding_cache": {
+    "field": "cls",
+    "manifest_sha256": "67f794d574721cce1cb6e37487cbcdbe793cfd5a06852270c78c85ff6d3e9d0e",
+    "root": "thesis-data/embeddings/dinov2_vitb14/res224_bicubic",
+    "splits": {
+      "cifar100": {
+        "imglist_sha256": "f907cb13024ba0fd13099954064df8f2f1ab8e3369c27b95ab44f3c5fc87ad16",
+        "manifest_sha256": "2168e3aaf0880e0b1650732fe4036b85833c157b435ae4f84bbea35a7a2d767b",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 9000
+      },
+      "cifar10_test": {
+        "imglist_sha256": "84559ec5225425e7f7363058d5f9442ed21a39c7c66b63c3f1bb8b1ddb935e13",
+        "manifest_sha256": "83e1dbaa156dd393020ab20cc9ff138dab34a0eb281b26ede940414ddf6da3a2",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 9000
+      },
+      "cifar10_train": {
+        "imglist_sha256": "9317e18980f1b11df74bba9d64223e57e69bd08c2943adbc75aec393a4976d1b",
+        "manifest_sha256": "c3fdacfbedbd24d2eb515bd2d700c3ec6568ba881bc706aeb851ee3a27da5dfe",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 50000
+      },
+      "csid": {
+        "imglist_sha256": "43aaee12dfd1b7213c244411730500ce239d35a1bf081bb53a795afed0276a7c",
+        "manifest_sha256": "809034abf9fcf76e4d14ef4ccebadccfd7c687f64a2fc63631e1f781b48bb5d7",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 150000
+      },
+      "mnist": {
+        "imglist_sha256": "48f8055d7327cbe91bff3ab6b43f9b623c3983355c55c246207907841c2ccb92",
+        "manifest_sha256": "36ca1060c214d4d27458386cf0d2e035db2b69824f339562737b78321c4e1560",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 70000
+      },
+      "places365": {
+        "imglist_sha256": "fa127faa5c1bbc5b567e1cd2871b04b570f045d1676550f441ec5e7c91ab6cc7",
+        "manifest_sha256": "f542432d3bc5bbba1737731507846bff82e298d7f663ab724152644e6824eb08",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 35195
+      },
+      "svhn": {
+        "imglist_sha256": "f0cb7b825a985af2a6bf803cf51d7ca004e24ee8d8051eb6805bf77c77621c1e",
+        "manifest_sha256": "4d13aaa8a49eca24b68b2f86f06211b9d706f4825dd3ffd8fdd2153d67cd3c90",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 26032
+      },
+      "texture": {
+        "imglist_sha256": "644fcaec364ee1ee440ff5285e1581d162b957378bb240ac4b7fc26e4f2f48e4",
+        "manifest_sha256": "ad744c09b90920675cde97121643191405933313824029c2ee158e83f3a2056a",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 5640
+      },
+      "tin": {
+        "imglist_sha256": "a44fd34e3c925d984063d2ad64969ff71e8fa6f5524fbe9da481c8b0c87b27cd",
+        "manifest_sha256": "0d2db44ab0b569ee99884aa58ea579666ae1f4184a20158421e114c6edaf41ba",
+        "openood_repo_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+        "rows": 7793
+      }
+    }
+  },
+  "fit_reference": {
+    "per_scorer": {
+      "class_conditional_diagonal": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "class_conditional_full": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "knn_normalized": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "knn_unnormalized": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "marginal_diagonal": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "marginal_full": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "pca_residual_all_id": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "pca_residual_all_id_l2": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "pca_residual_class_mean": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 10
+      },
+      "pca_residual_class_mean_l2": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 10
+      },
+      "pca_residual_class_mean_whitened": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 10
+      },
+      "rmd": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      },
+      "rmd_pp": {
+        "fit_rows": 50000,
+        "fit_split": "cifar10_train",
+        "reference_rows": 50000
+      }
+    },
+    "rows": 50000,
+    "split": "cifar10_train"
+  },
+  "n_scorers": 13,
+  "openood_commit": "8d44375e4c695d03d2b97850b754f24fd4bda447",
+  "repo_commit": "0703028",
+  "run_id": "2026-09-10-full-spectrum-shrunk",
+  "score_dump": {
+    "columns": [
+      "marginal_diagonal",
+      "marginal_full",
+      "class_conditional_diagonal",
+      "class_conditional_full",
+      "rmd",
+      "rmd_pp",
+      "knn_normalized",
+      "knn_unnormalized",
+      "pca_residual_all_id",
+      "pca_residual_class_mean",
+      "pca_residual_all_id_l2",
+      "pca_residual_class_mean_l2",
+      "pca_residual_class_mean_whitened",
+      "control_random_subspace_residual_00",
+      "control_random_subspace_residual_01",
+      "control_random_subspace_residual_02",
+      "control_random_subspace_residual_03",
+      "control_random_subspace_residual_04",
+      "control_random_subspace_residual_05",
+      "control_random_subspace_residual_06",
+      "control_random_subspace_residual_07",
+      "control_random_subspace_residual_08",
+      "control_random_subspace_residual_09",
+      "control_random_subspace_residual_10",
+      "control_random_subspace_residual_11",
+      "control_random_subspace_residual_12",
+      "control_random_subspace_residual_13",
+      "control_random_subspace_residual_14",
+      "control_random_subspace_residual_15",
+      "control_random_subspace_residual_16",
+      "control_random_subspace_residual_17",
+      "control_random_subspace_residual_18",
+      "control_random_subspace_residual_19"
+    ],
+    "path": "results/runs/2026-09-10-full-spectrum-shrunk/scores/per_sample_scores.parquet",
+    "rows": 312660,
+    "sha256": "864b7b3df399ee2e8e36b017fc000472ff3c88be1ebb64e23cb8108fde5c4a28"
+  },
+  "scored": {
+    "ood_groups": {
+      "far_ood": [
+        "mnist",
+        "svhn",
+        "texture",
+        "places365"
+      ],
+      "near_ood": [
+        "cifar100",
+        "tin"
+      ]
+    },
+    "rows": 312660,
+    "splits": {
+      "cifar100": 9000,
+      "csid": 150000,
+      "id_test": 9000,
+      "mnist": 70000,
+      "places365": 35195,
+      "svhn": 26032,
+      "texture": 5640,
+      "tin": 7793
+    }
+  },
+  "scorers": {
+    "class_conditional_diagonal": {
+      "covariances": {
+        "primary": {
+          "condition_number": 180.32968768448714,
+          "diagonal": true,
+          "eigenvalue_max": 4.06468832781341,
+          "eigenvalue_min": 0.02254031701604879,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "class_conditional_pooled",
+          "n_classes": 10,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "class_conditional_diagonal:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708,
+          "trace": 1679.2083006473256
+        }
+      },
+      "hyperparams": "{\"class_conditional\":true,\"covariance\":\"diagonal\",\"l2_normalize\":false,\"pooling\":\"pooled_within_class\",\"relative\":false,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "primary",
+      "scorer": "class_conditional_diagonal"
+    },
+    "class_conditional_full": {
+      "covariances": {
+        "primary": {
+          "condition_number": 2372.208280931776,
+          "diagonal": false,
+          "eigenvalue_max": 35.4199425804203,
+          "eigenvalue_min": 0.014931211085102425,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "class_conditional_pooled",
+          "n_classes": 10,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "class_conditional_full:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708,
+          "trace": 1679.2083006473256
+        }
+      },
+      "hyperparams": "{\"class_conditional\":true,\"covariance\":\"full\",\"l2_normalize\":false,\"pooling\":\"pooled_within_class\",\"relative\":false,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "primary",
+      "scorer": "class_conditional_full"
+    },
+    "knn_normalized": {
+      "aggregation": "kth",
+      "hyperparams": "{\"aggregation\":\"kth\",\"k\":50,\"metric\":\"euclidean\",\"normalize\":true,\"reference_split\":\"cifar10_train\"}",
+      "k": 50,
+      "n_features": 768,
+      "n_reference": 50000,
+      "normalize": true,
+      "reporting_tier": "appendix",
+      "scorer": "knn_normalized"
+    },
+    "knn_unnormalized": {
+      "aggregation": "kth",
+      "hyperparams": "{\"aggregation\":\"kth\",\"k\":50,\"metric\":\"euclidean\",\"normalize\":false,\"reference_split\":\"cifar10_train\"}",
+      "k": 50,
+      "n_features": 768,
+      "n_reference": 50000,
+      "normalize": false,
+      "reporting_tier": "primary",
+      "scorer": "knn_unnormalized"
+    },
+    "marginal_diagonal": {
+      "covariances": {
+        "primary": {
+          "condition_number": 570.4830270486419,
+          "diagonal": true,
+          "eigenvalue_max": 8.511445787754926,
+          "eigenvalue_min": 0.014919717825416045,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "marginal",
+          "n_classes": 0,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "marginal_diagonal:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006,
+          "trace": 2098.39694725422
+        }
+      },
+      "hyperparams": "{\"class_conditional\":false,\"covariance\":\"diagonal\",\"l2_normalize\":false,\"pooling\":\"marginal\",\"relative\":false,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "primary",
+      "scorer": "marginal_diagonal"
+    },
+    "marginal_full": {
+      "covariances": {
+        "primary": {
+          "condition_number": 13042.021416134528,
+          "diagonal": false,
+          "eigenvalue_max": 87.91348344512988,
+          "eigenvalue_min": 0.006740786618887964,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "marginal",
+          "n_classes": 0,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "marginal_full:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006,
+          "trace": 2098.39694725422
+        }
+      },
+      "hyperparams": "{\"class_conditional\":false,\"covariance\":\"full\",\"l2_normalize\":false,\"pooling\":\"marginal\",\"relative\":false,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "primary",
+      "scorer": "marginal_full"
+    },
+    "pca_residual_all_id": {
+      "centre": "mu_id",
+      "d": 550,
+      "d_rule": "explained_variance_0.95",
+      "eigenvalue_max": 88.1241524537725,
+      "eigenvalue_min": 5.547616191752762e-14,
+      "explained_variance_at_d": 0.9500291530135524,
+      "fitting_split": "cifar10_train",
+      "hyperparams": "{\"centre\":\"mu_id\",\"d\":550,\"d_rule\":\"explained_variance_95\",\"eigendecomposition\":\"eigh\",\"fitting_split\":\"cifar10_train\",\"normalize\":false,\"subspace\":\"all_id\",\"whiten\":false}",
+      "n_components_available": 767,
+      "n_features": 768,
+      "n_fitting_rows": 50000,
+      "n_residual_directions": 218,
+      "normalize": false,
+      "reporting_tier": "secondary",
+      "scorer": "pca_residual_all_id",
+      "subspace": "all_id",
+      "sweep_d": [
+        16,
+        32,
+        64,
+        128,
+        256,
+        384,
+        512,
+        768
+      ],
+      "sweep_is_reported_never_reselected": true,
+      "whiten": false
+    },
+    "pca_residual_all_id_l2": {
+      "centre": "mu_id",
+      "d": 551,
+      "d_rule": "explained_variance_0.95",
+      "eigenvalue_max": 0.03794543947776338,
+      "eigenvalue_min": 6.9501501048271804e-09,
+      "explained_variance_at_d": 0.9500310755735277,
+      "fitting_split": "cifar10_train",
+      "hyperparams": "{\"centre\":\"mu_id\",\"d\":551,\"d_rule\":\"explained_variance_95\",\"eigendecomposition\":\"eigh\",\"fitting_split\":\"cifar10_train\",\"normalize\":true,\"subspace\":\"all_id\",\"whiten\":false}",
+      "n_components_available": 768,
+      "n_features": 768,
+      "n_fitting_rows": 50000,
+      "n_residual_directions": 217,
+      "normalize": true,
+      "reporting_tier": "appendix",
+      "scorer": "pca_residual_all_id_l2",
+      "subspace": "all_id",
+      "sweep_d": [
+        16,
+        32,
+        64,
+        128,
+        256,
+        384,
+        512,
+        768
+      ],
+      "sweep_is_reported_never_reselected": true,
+      "whiten": false
+    },
+    "pca_residual_class_mean": {
+      "centre": "mu_id",
+      "d": 9,
+      "d_rule": "k_minus_1",
+      "eigenvalue_max": 79.01762148100258,
+      "eigenvalue_min": 0.0,
+      "explained_variance_at_d": 0.9999999999999983,
+      "fitting_split": "cifar10_train",
+      "hyperparams": "{\"centre\":\"mu_id\",\"d\":9,\"d_rule\":\"k_minus_1\",\"eigendecomposition\":\"eigh\",\"fitting_split\":\"cifar10_train\",\"normalize\":false,\"subspace\":\"class_mean\",\"whiten\":false}",
+      "n_components_available": 9,
+      "n_features": 768,
+      "n_fitting_rows": 10,
+      "n_residual_directions": 759,
+      "normalize": false,
+      "reporting_tier": "secondary",
+      "scorer": "pca_residual_class_mean",
+      "subspace": "class_mean",
+      "whiten": false
+    },
+    "pca_residual_class_mean_l2": {
+      "centre": "mu_id",
+      "d": 9,
+      "d_rule": "k_minus_1",
+      "eigenvalue_max": 0.0344868710298725,
+      "eigenvalue_min": 0.0,
+      "explained_variance_at_d": 0.9999999999999988,
+      "fitting_split": "cifar10_train",
+      "hyperparams": "{\"centre\":\"mu_id\",\"d\":9,\"d_rule\":\"k_minus_1\",\"eigendecomposition\":\"eigh\",\"fitting_split\":\"cifar10_train\",\"normalize\":true,\"subspace\":\"class_mean\",\"whiten\":false}",
+      "n_components_available": 9,
+      "n_features": 768,
+      "n_fitting_rows": 10,
+      "n_residual_directions": 759,
+      "normalize": true,
+      "reporting_tier": "appendix",
+      "scorer": "pca_residual_class_mean_l2",
+      "subspace": "class_mean",
+      "whiten": false
+    },
+    "pca_residual_class_mean_whitened": {
+      "centre": "mu_id",
+      "d": 9,
+      "d_rule": "k_minus_1",
+      "eigenvalue_max": 0.9728706355916708,
+      "eigenvalue_min": 0.0,
+      "explained_variance_at_d": 0.9999999999999989,
+      "fitting_split": "cifar10_train",
+      "hyperparams": "{\"centre\":\"mu_id\",\"d\":9,\"d_rule\":\"k_minus_1\",\"eigendecomposition\":\"eigh\",\"fitting_split\":\"cifar10_train\",\"normalize\":false,\"subspace\":\"class_mean\",\"whiten\":true}",
+      "n_components_available": 9,
+      "n_features": 768,
+      "n_fitting_rows": 10,
+      "n_residual_directions": 759,
+      "normalize": false,
+      "reporting_tier": "conditional",
+      "scorer": "pca_residual_class_mean_whitened",
+      "subspace": "class_mean",
+      "whiten": true,
+      "whitening_covariance": {
+        "condition_number": 1440841677090619.8,
+        "diagonal": false,
+        "eigenvalue_max": 88.12415245377238,
+        "eigenvalue_min": 6.116157927338323e-14,
+        "is_symmetric": true,
+        "l2_normalized": false,
+        "model": "marginal",
+        "n_classes": 0,
+        "n_features": 768,
+        "n_samples": 50000,
+        "name": "pca_residual_class_mean_whitened:whitening",
+        "raw_is_symmetric": true,
+        "raw_max_asymmetry": 0.0,
+        "samples_per_dimension": 65.10416666666667,
+        "shrinkage": false,
+        "shrinkage_intensity": 0.0,
+        "trace": 2098.3969472542194
+      }
+    },
+    "rmd": {
+      "covariances": {
+        "background": {
+          "condition_number": 13042.021416134528,
+          "diagonal": false,
+          "eigenvalue_max": 87.91348344512988,
+          "eigenvalue_min": 0.006740786618887964,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "marginal",
+          "n_classes": 0,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "rmd:background",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006,
+          "trace": 2098.39694725422
+        },
+        "primary": {
+          "condition_number": 2372.208280931776,
+          "diagonal": false,
+          "eigenvalue_max": 35.4199425804203,
+          "eigenvalue_min": 0.014931211085102425,
+          "is_symmetric": true,
+          "l2_normalized": false,
+          "model": "class_conditional_pooled",
+          "n_classes": 10,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "rmd:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708,
+          "trace": 1679.2083006473256
+        }
+      },
+      "hyperparams": "{\"class_conditional\":true,\"covariance\":\"full\",\"l2_normalize\":false,\"pooling\":\"pooled_within_class\",\"relative\":true,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "secondary",
+      "scorer": "rmd"
+    },
+    "rmd_pp": {
+      "covariances": {
+        "background": {
+          "condition_number": 12615.59621025191,
+          "diagonal": false,
+          "eigenvalue_max": 0.03785397960679469,
+          "eigenvalue_min": 3.000570006832742e-06,
+          "is_symmetric": true,
+          "l2_normalized": true,
+          "model": "marginal",
+          "n_classes": 0,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "rmd_pp:background",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.002489192625666011,
+          "trace": 0.9236381760347874
+        },
+        "primary": {
+          "condition_number": 2388.1390165943276,
+          "diagonal": false,
+          "eigenvalue_max": 0.015743904250347024,
+          "eigenvalue_min": 6.592540945459305e-06,
+          "is_symmetric": true,
+          "l2_normalized": true,
+          "model": "class_conditional_pooled",
+          "n_classes": 10,
+          "n_features": 768,
+          "n_samples": 50000,
+          "name": "rmd_pp:primary",
+          "raw_is_symmetric": true,
+          "raw_max_asymmetry": 0.0,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006835490290362547,
+          "trace": 0.7399333080455097
+        }
+      },
+      "hyperparams": "{\"class_conditional\":true,\"covariance\":\"full\",\"l2_normalize\":true,\"pooling\":\"pooled_within_class\",\"relative\":true,\"shrinkage\":true,\"shrinkage_target\":\"ledoit_wolf_scaled_identity\"}",
+      "reporting_tier": "secondary",
+      "scorer": "rmd_pp"
+    }
+  },
+  "seed": 20260909,
+  "shrinkage_diagnostics": {
+    "scored_arm": {
+      "class_conditional_diagonal": {
+        "class_conditional_diagonal:primary": {
+          "condition_number": 180.32968768448714,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708
+        }
+      },
+      "class_conditional_full": {
+        "class_conditional_full:primary": {
+          "condition_number": 2372.208280931776,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708
+        }
+      },
+      "marginal_diagonal": {
+        "marginal_diagonal:primary": {
+          "condition_number": 570.4830270486419,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006
+        }
+      },
+      "marginal_full": {
+        "marginal_full:primary": {
+          "condition_number": 13042.021416134528,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006
+        }
+      },
+      "rmd": {
+        "rmd:background": {
+          "condition_number": 13042.021416134528,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.0024670852338171006
+        },
+        "rmd:primary": {
+          "condition_number": 2372.208280931776,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006828914619402708
+        }
+      },
+      "rmd_pp": {
+        "rmd_pp:background": {
+          "condition_number": 12615.59621025191,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.002489192625666011
+        },
+        "rmd_pp:primary": {
+          "condition_number": 2388.1390165943276,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": true,
+          "shrinkage_intensity": 0.006835490290362547
+        }
+      }
+    },
+    "unscored_arm": {
+      "class_conditional_diagonal": {
+        "class_conditional_diagonal:primary": {
+          "condition_number": 532.2250936507821,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      },
+      "class_conditional_full": {
+        "class_conditional_full:primary": {
+          "condition_number": 617189248820629.6,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      },
+      "marginal_diagonal": {
+        "marginal_diagonal:primary": {
+          "condition_number": 1039.8308515277342,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      },
+      "marginal_full": {
+        "marginal_full:primary": {
+          "condition_number": 1440841677090619.8,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      },
+      "rmd": {
+        "rmd:background": {
+          "condition_number": 1440841677090619.8,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        },
+        "rmd:primary": {
+          "condition_number": 617189248820629.6,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      },
+      "rmd_pp": {
+        "rmd_pp:background": {
+          "condition_number": 5459657.546667275,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        },
+        "rmd_pp:primary": {
+          "condition_number": 2295802.5890556485,
+          "n_samples": 50000,
+          "samples_per_dimension": 65.10416666666667,
+          "shrinkage": false,
+          "shrinkage_intensity": 0.0
+        }
+      }
+    }
+  },
+  "timing": {
+    "caveat": "Timings measure this implementation as much as they measure the methods. Nearest-neighbour search is exact numpy rather than faiss, and the covariance factorisations use numpy's Cholesky rather than scipy's. Any comparison against the nearest-neighbour scorers is implementation-inclusive.",
+    "fit": {
+      "class_conditional_diagonal": {
+        "microseconds_per_sample": 9.792101341299713,
+        "seconds": 0.48960506706498563
+      },
+      "class_conditional_full": {
+        "microseconds_per_sample": 9.904689523391426,
+        "seconds": 0.4952344761695713
+      },
+      "knn_normalized": {
+        "microseconds_per_sample": 2.4950953805819154,
+        "seconds": 0.12475476902909577
+      },
+      "knn_unnormalized": {
+        "microseconds_per_sample": 0.28600164223462343,
+        "seconds": 0.014300082111731172
+      },
+      "marginal_diagonal": {
+        "microseconds_per_sample": 7.17140784021467,
+        "seconds": 0.3585703920107335
+      },
+      "marginal_full": {
+        "microseconds_per_sample": 7.3741104593500495,
+        "seconds": 0.3687055229675025
+      },
+      "pca_residual_all_id": {
+        "microseconds_per_sample": 4.623332042247057,
+        "seconds": 0.23116660211235285
+      },
+      "pca_residual_all_id_l2": {
+        "microseconds_per_sample": 7.392683662474155,
+        "seconds": 0.36963418312370777
+      },
+      "pca_residual_class_mean": {
+        "microseconds_per_sample": 1.7986554000526667,
+        "seconds": 0.08993277000263333
+      },
+      "pca_residual_class_mean_l2": {
+        "microseconds_per_sample": 3.8477313797920942,
+        "seconds": 0.1923865689896047
+      },
+      "pca_residual_class_mean_whitened": {
+        "microseconds_per_sample": 16.550936442799866,
+        "seconds": 0.8275468221399933
+      },
+      "rmd": {
+        "microseconds_per_sample": 17.680321321822703,
+        "seconds": 0.8840160660911351
+      },
+      "rmd_pp": {
+        "microseconds_per_sample": 21.54919665772468,
+        "seconds": 1.077459832886234
+      }
+    },
+    "machine": {
+      "node": "tiny-delli01",
+      "numpy": "1.26.4",
+      "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+      "processor": "x86_64",
+      "python": "3.10.20"
+    },
+    "score": {
+      "class_conditional_diagonal": {
+        "microseconds_per_sample": 95.83064410523932,
+        "rows": 312660,
+        "seconds": 29.962409185944125
+      },
+      "class_conditional_full": {
+        "microseconds_per_sample": 96.64597602187943,
+        "rows": 312660,
+        "seconds": 30.217330863000825
+      },
+      "control_random_subspace_residual_00": {
+        "microseconds_per_sample": 13.927118800458256,
+        "rows": 312660,
+        "seconds": 4.354452964151278
+      },
+      "control_random_subspace_residual_01": {
+        "microseconds_per_sample": 14.006513373033027,
+        "rows": 312660,
+        "seconds": 4.379276471212506
+      },
+      "control_random_subspace_residual_02": {
+        "microseconds_per_sample": 14.346661578293377,
+        "rows": 312660,
+        "seconds": 4.485627209069207
+      },
+      "control_random_subspace_residual_03": {
+        "microseconds_per_sample": 14.263572571102737,
+        "rows": 312660,
+        "seconds": 4.459648600080982
+      },
+      "control_random_subspace_residual_04": {
+        "microseconds_per_sample": 14.282176910907264,
+        "rows": 312660,
+        "seconds": 4.465465432964265
+      },
+      "control_random_subspace_residual_05": {
+        "microseconds_per_sample": 14.18629278155586,
+        "rows": 312660,
+        "seconds": 4.435486301081255
+      },
+      "control_random_subspace_residual_06": {
+        "microseconds_per_sample": 14.229805450256194,
+        "rows": 312660,
+        "seconds": 4.4490909720771015
+      },
+      "control_random_subspace_residual_07": {
+        "microseconds_per_sample": 14.013916183358859,
+        "rows": 312660,
+        "seconds": 4.381591033888981
+      },
+      "control_random_subspace_residual_08": {
+        "microseconds_per_sample": 14.566291134024304,
+        "rows": 312660,
+        "seconds": 4.554296585964039
+      },
+      "control_random_subspace_residual_09": {
+        "microseconds_per_sample": 14.139463928621245,
+        "rows": 312660,
+        "seconds": 4.420844791922718
+      },
+      "control_random_subspace_residual_10": {
+        "microseconds_per_sample": 14.033820578405598,
+        "rows": 312660,
+        "seconds": 4.387814342044294
+      },
+      "control_random_subspace_residual_11": {
+        "microseconds_per_sample": 14.261181314903517,
+        "rows": 312660,
+        "seconds": 4.458900949917734
+      },
+      "control_random_subspace_residual_12": {
+        "microseconds_per_sample": 14.346958421353484,
+        "rows": 312660,
+        "seconds": 4.485720020020381
+      },
+      "control_random_subspace_residual_13": {
+        "microseconds_per_sample": 14.303847786521903,
+        "rows": 312660,
+        "seconds": 4.472241048933938
+      },
+      "control_random_subspace_residual_14": {
+        "microseconds_per_sample": 14.193430464605864,
+        "rows": 312660,
+        "seconds": 4.437717969063669
+      },
+      "control_random_subspace_residual_15": {
+        "microseconds_per_sample": 14.199921678100443,
+        "rows": 312660,
+        "seconds": 4.439747511874884
+      },
+      "control_random_subspace_residual_16": {
+        "microseconds_per_sample": 14.229455865462775,
+        "rows": 312660,
+        "seconds": 4.448981670895591
+      },
+      "control_random_subspace_residual_17": {
+        "microseconds_per_sample": 14.305934094598886,
+        "rows": 312660,
+        "seconds": 4.4728933540172875
+      },
+      "control_random_subspace_residual_18": {
+        "microseconds_per_sample": 14.291349491783032,
+        "rows": 312660,
+        "seconds": 4.468333332100883
+      },
+      "control_random_subspace_residual_19": {
+        "microseconds_per_sample": 13.789773424610145,
+        "rows": 312660,
+        "seconds": 4.311510558938608
+      },
+      "knn_normalized": {
+        "microseconds_per_sample": 942.3574275536853,
+        "rows": 312660,
+        "seconds": 294.6374732989352
+      },
+      "knn_unnormalized": {
+        "microseconds_per_sample": 897.9825398485626,
+        "rows": 312660,
+        "seconds": 280.7632209090516
+      },
+      "marginal_diagonal": {
+        "microseconds_per_sample": 8.907796020944192,
+        "rows": 312660,
+        "seconds": 2.7851115039084107
+      },
+      "marginal_full": {
+        "microseconds_per_sample": 10.297986020067828,
+        "rows": 312660,
+        "seconds": 3.219768309034407
+      },
+      "pca_residual_all_id": {
+        "microseconds_per_sample": 14.285785156632016,
+        "rows": 312660,
+        "seconds": 4.466593587072566
+      },
+      "pca_residual_all_id_l2": {
+        "microseconds_per_sample": 16.013286279485,
+        "rows": 312660,
+        "seconds": 5.006714088143781
+      },
+      "pca_residual_class_mean": {
+        "microseconds_per_sample": 5.172425529540733,
+        "rows": 312660,
+        "seconds": 1.6172105660662055
+      },
+      "pca_residual_class_mean_l2": {
+        "microseconds_per_sample": 7.067076881785919,
+        "rows": 312660,
+        "seconds": 2.2095922578591853
+      },
+      "pca_residual_class_mean_whitened": {
+        "microseconds_per_sample": 13.183198726786587,
+        "rows": 312660,
+        "seconds": 4.1218589139170945
+      },
+      "rmd": {
+        "microseconds_per_sample": 109.15024104825821,
+        "rows": 312660,
+        "seconds": 34.12691436614841
+      },
+      "rmd_pp": {
+        "microseconds_per_sample": 113.87106442106972,
+        "rows": 312660,
+        "seconds": 35.60292700189166
+      }
+    }
+  }
+}
