@@ -1,8 +1,7 @@
 # xai-ood
 
 Training-free out-of-distribution detection on frozen DINOv2 embeddings: the
-code, the pre-specified analysis plan and the analysis scripts behind a
-bachelor's thesis.
+the code and the analysis scripts behind a bachelor's thesis.
 
 ## What this is
 
@@ -32,8 +31,7 @@ the 9,000 source photographs**, so the 76 corrupted rows derived from one
 photograph resample together rather than as 76 independent observations.
 Intervals are 95% percentile intervals at B = 1,000 and are reported
 descriptively: **no significance claim is attached to any comparison**. That is
-a branch elected on 2026-09-08, before any result existed, and it is recorded
-with its dates in [`docs/analysis-plan.md`](docs/analysis-plan.md).
+a branch elected on 2026-09-08, before any result existed.
 
 ## The thesis this belongs to
 
@@ -61,7 +59,6 @@ not a library anyone is asked to depend on.
 src/xai_ood/       the library: scorers, metrics, the cluster bootstrap, the schema
 scripts/           the invocation record of Phase 1, and the Phase 2 scoring driver
 analysis/          the scripts that turn a scoring run into the reported tables and figures
-docs/              the pre-specified analysis plan
 data_manifests/    the CIFAR-10-C index map, committed so the cs-ID tree is rebuildable
 env-lockfiles/     the second conda environment, and the two pins used during install
 logs/              the extraction runs as they happened, successes and failures alike
