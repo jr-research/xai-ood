@@ -15,7 +15,7 @@ aggregated. Drift slower than one pair of calls cancels in the ratio. Which of
 the two blocks goes first alternates by round, so any residual first-or-second
 advantage cancels across rounds too.
 
-THE QUESTION, unchanged: per-sample cost is claimed everywhere in this session
+THE QUESTION, unchanged: per-sample cost is claimed throughout this project
 to be a function of row count and dimension and not of the values. These are
 dense linear algebra with no data-dependent branching, so the claim should hold
 exactly; the mechanism that could break it is subnormal floating point, which is
