@@ -13,7 +13,7 @@ scorer in canonical row order, and ``run_metadata.json`` beside it. Parquet
 rather than a text format because the scores are float64 and a text round trip
 changes them.
 
-Thirty-five score columns, not fifteen. The extra twenty are
+Thirty-three score columns, not thirteen. The extra twenty are
 ``control_random_subspace_residual_00`` through ``_19``: the residual to a random
 subspace of the same dimension the variance rule selected, drawn twenty times.
 They answer a question the residual scorers cannot answer alone, which is whether
@@ -454,7 +454,7 @@ class TimedScorer:
 def fit_gaussian_arm(
     embeddings: np.ndarray, labels: np.ndarray, *, shrinkage: bool
 ) -> tuple[dict[str, Any], dict[str, float], dict[str, dict[str, int]]]:
-    """Fit the eight Gaussian configurations on one arm, timing and measuring each."""
+    """Fit the six Gaussian configurations on one arm, timing and measuring each."""
     scorers: dict[str, Any] = {}
     seconds: dict[str, float] = {}
     rows: dict[str, dict[str, int]] = {}
@@ -473,7 +473,7 @@ def fit_gaussian_arm(
 def fit_scorers(
     embeddings: np.ndarray, labels: np.ndarray, *, shrinkage: bool
 ) -> tuple[dict[str, Any], dict[str, float], dict[str, dict[str, int]]]:
-    """Fit all fifteen configurations; return them, their seconds and their row counts.
+    """Fit all thirteen configurations; return them, their seconds and their row counts.
 
     Loops the per-configuration fit functions rather than the ``fit_all_*``
     wrappers, so each fit can be timed separately without touching the library.
