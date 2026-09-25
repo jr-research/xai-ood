@@ -1,0 +1,2392 @@
+{
+ "_provenance": {
+  "bootstrap_seed": 20260909,
+  "estimand": "dataset-averaged unless a block says otherwise",
+  "gated_table": "2026-09-09-standard-shrunk-dataset-averaged.csv",
+  "generated_by": "11-Code/thesis-figures/figure_data.py",
+  "interval": "percentile 2.5/97.5 over bootstrap replicates, descriptive only",
+  "n_replicates": 1000,
+  "per_dataset_pin": "5.000e-05 against per-dataset-marginals-both-arms-both-protocols.csv",
+  "pin_max_abs_deviation": "2.842e-14",
+  "scale": "AUROC on 0-100",
+  "shrunk_run": "2026-09-10-full-spectrum-shrunk",
+  "unshrunk_pin": "unshrunk is the ablation arm and has no gated table to pin against",
+  "unshrunk_run": "2026-09-10-full-spectrum-unshrunk"
+ },
+ "arm_comparison_auroc": {
+  "any_dataset_changes_sign": false,
+  "average_changes_sign": true,
+  "average_moves_between_arms": 0.860555,
+  "averages": {
+   "shrunk": {
+    "hi": 0.942988,
+    "lo": 0.52354,
+    "point": 0.741065
+   },
+   "unshrunk": {
+    "hi": 0.034896,
+    "lo": -0.28781,
+    "point": -0.11949
+   }
+  },
+  "between_dataset_gap": {
+   "shrunk": 2.706678,
+   "unshrunk": 2.185379
+  },
+  "comparison": "class_conditional_full - rmd",
+  "datasets": {
+   "cifar100": {
+    "shrunk": {
+     "hi": -0.365183,
+     "lo": -0.885263,
+     "point": -0.612274
+    },
+    "unshrunk": {
+     "hi": -0.991016,
+     "lo": -1.434207,
+     "point": -1.212179
+    }
+   },
+   "tin": {
+    "shrunk": {
+     "hi": 2.322192,
+     "lo": 1.859551,
+     "point": 2.094404
+    },
+    "unshrunk": {
+     "hi": 1.115311,
+     "lo": 0.83015,
+     "point": 0.9732
+    }
+   }
+  },
+  "group": "near_ood",
+  "metric": "auroc",
+  "protocol": "standard"
+ },
+ "arm_comparison_fpr95": {
+  "any_dataset_changes_sign": false,
+  "average_changes_sign": true,
+  "average_moves_between_arms": 3.238721,
+  "averages": {
+   "shrunk": {
+    "hi": 0.673582,
+    "lo": -2.879264,
+    "point": -0.775291
+   },
+   "unshrunk": {
+    "hi": 3.383053,
+    "lo": 1.302065,
+    "point": 2.46343
+   }
+  },
+  "between_dataset_gap": {
+   "shrunk": 12.12836,
+   "unshrunk": 9.828695
+  },
+  "comparison": "class_conditional_full - rmd",
+  "datasets": {
+   "cifar100": {
+    "shrunk": {
+     "hi": 7.033889,
+     "lo": 3.0,
+     "point": 5.288889
+    },
+    "unshrunk": {
+     "hi": 8.733333,
+     "lo": 5.855556,
+     "point": 7.377778
+    }
+   },
+   "tin": {
+    "shrunk": {
+     "hi": -5.439818,
+     "lo": -8.867253,
+     "point": -6.839471
+    },
+    "unshrunk": {
+     "hi": -1.783652,
+     "lo": -3.387976,
+     "point": -2.450917
+    }
+   }
+  },
+  "group": "near_ood",
+  "metric": "fpr95",
+  "protocol": "standard"
+ },
+ "cost_not_drawn": {
+  "caveat": "Timings measure this implementation as much as they measure the methods. Nearest-neighbour search is exact numpy rather than faiss, and the covariance factorisations use numpy's Cholesky rather than scipy's. Any comparison against the nearest-neighbour scorers is implementation-inclusive.",
+  "fit_us_per_sample": {
+   "class_conditional_diagonal": 9.9805,
+   "class_conditional_full": 10.3295,
+   "knn_normalized": 2.5067,
+   "knn_unnormalized": 0.2835,
+   "marginal_diagonal": 7.275,
+   "marginal_full": 7.5577,
+   "pca_residual_all_id": 4.6156,
+   "pca_residual_all_id_l2": 6.8141,
+   "pca_residual_class_mean": 1.7341,
+   "pca_residual_class_mean_l2": 3.8763,
+   "pca_residual_class_mean_whitened": 16.7372,
+   "rmd": 17.6449,
+   "rmd_pp": 21.6574
+  },
+  "machine": {
+   "node": "tiny-delli01",
+   "numpy": "1.26.4",
+   "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+   "processor": "x86_64",
+   "python": "3.10.20"
+  },
+  "score_us_per_sample": {
+   "class_conditional_diagonal": 89.2549,
+   "class_conditional_full": 94.4238,
+   "knn_normalized": 971.9885,
+   "knn_unnormalized": 947.02,
+   "marginal_diagonal": 8.9221,
+   "marginal_full": 8.8574,
+   "pca_residual_all_id": 15.0848,
+   "pca_residual_all_id_l2": 16.757,
+   "pca_residual_class_mean": 5.2441,
+   "pca_residual_class_mean_l2": 7.1524,
+   "pca_residual_class_mean_whitened": 14.1283,
+   "rmd": 106.3775,
+   "rmd_pp": 118.6256
+  }
+ },
+ "degradation": {
+  "class_conditional_diagonal": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -0.797565,
+     "lo": -1.32656,
+     "point": -1.06919
+    },
+    "full_spectrum": 91.130084,
+    "standard": 90.060893
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -0.824216,
+     "lo": -1.232421,
+     "point": -1.027479
+    },
+    "full_spectrum": 97.270376,
+    "standard": 96.242896
+   }
+  },
+  "class_conditional_full": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.136959,
+     "lo": 0.870256,
+     "point": 1.003134
+    },
+    "full_spectrum": 96.720691,
+    "standard": 97.723825
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 1.024546,
+     "lo": 0.749901,
+     "point": 0.888886
+    },
+    "full_spectrum": 97.312897,
+    "standard": 98.201783
+   }
+  },
+  "knn_normalized": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.741627,
+     "lo": 1.433533,
+     "point": 1.581309
+    },
+    "full_spectrum": 97.174269,
+    "standard": 98.755578
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 1.9925,
+     "lo": 1.653899,
+     "point": 1.820014
+    },
+    "full_spectrum": 96.467636,
+    "standard": 98.28765
+   }
+  },
+  "knn_unnormalized": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 2.422637,
+     "lo": 1.736226,
+     "point": 2.067592
+    },
+    "full_spectrum": 89.927622,
+    "standard": 91.995214
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.539583,
+     "lo": 0.148794,
+     "point": 0.34371
+    },
+    "full_spectrum": 96.961625,
+    "standard": 97.305335
+   }
+  },
+  "marginal_diagonal": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -10.077641,
+     "lo": -11.021014,
+     "point": -10.559574
+    },
+    "full_spectrum": 71.44617,
+    "standard": 60.886597
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -10.629816,
+     "lo": -11.790845,
+     "point": -11.228734
+    },
+    "full_spectrum": 84.214598,
+    "standard": 72.985864
+   }
+  },
+  "marginal_full": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.088233,
+     "lo": 0.80047,
+     "point": 0.944642
+    },
+    "full_spectrum": 95.955838,
+    "standard": 96.90048
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.92929,
+     "lo": 0.639205,
+     "point": 0.784954
+    },
+    "full_spectrum": 97.087166,
+    "standard": 97.872121
+   }
+  },
+  "pca_residual_all_id": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.274008,
+     "lo": 1.026393,
+     "point": 1.150299
+    },
+    "full_spectrum": 97.619369,
+    "standard": 98.769668
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 2.130702,
+     "lo": 1.752294,
+     "point": 1.945948
+    },
+    "full_spectrum": 95.557322,
+    "standard": 97.503269
+   }
+  },
+  "pca_residual_all_id_l2": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.080722,
+     "lo": 0.880772,
+     "point": 0.97907
+    },
+    "full_spectrum": 98.615287,
+    "standard": 99.594357
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 3.523759,
+     "lo": 3.05167,
+     "point": 3.291208
+    },
+    "full_spectrum": 94.214544,
+    "standard": 97.505752
+   }
+  },
+  "pca_residual_class_mean": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -2.318861,
+     "lo": -3.023575,
+     "point": -2.688152
+    },
+    "full_spectrum": 86.697606,
+    "standard": 84.009454
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -1.957736,
+     "lo": -2.55957,
+     "point": -2.257829
+    },
+    "full_spectrum": 95.827904,
+    "standard": 93.570074
+   }
+  },
+  "pca_residual_class_mean_l2": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 0.658951,
+     "lo": 0.336903,
+     "point": 0.497784
+    },
+    "full_spectrum": 97.673321,
+    "standard": 98.171105
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.944608,
+     "lo": 0.556301,
+     "point": 0.750543
+    },
+    "full_spectrum": 96.598477,
+    "standard": 97.34902
+   }
+  },
+  "pca_residual_class_mean_whitened": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.099979,
+     "lo": 0.81385,
+     "point": 0.95659
+    },
+    "full_spectrum": 96.074364,
+    "standard": 97.030954
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.945184,
+     "lo": 0.655704,
+     "point": 0.801644
+    },
+    "full_spectrum": 97.11945,
+    "standard": 97.921094
+   }
+  },
+  "rmd": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 8.443365,
+     "lo": 7.637427,
+     "point": 8.025564
+    },
+    "full_spectrum": 90.496737,
+    "standard": 98.522301
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 11.079713,
+     "lo": 10.089808,
+     "point": 10.588186
+    },
+    "full_spectrum": 86.872532,
+    "standard": 97.460718
+   }
+  },
+  "rmd_pp": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 7.913147,
+     "lo": 7.132351,
+     "point": 7.517307
+    },
+    "full_spectrum": 90.987961,
+    "standard": 98.505268
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 10.075641,
+     "lo": 9.149252,
+     "point": 9.608413
+    },
+    "full_spectrum": 87.972394,
+    "standard": 97.580807
+   }
+  }
+ },
+ "degradation_unshrunk": {
+  "class_conditional_diagonal": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -0.739824,
+     "lo": -1.256485,
+     "point": -1.00336
+    },
+    "full_spectrum": 91.525149,
+    "standard": 90.521789
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -0.808112,
+     "lo": -1.21521,
+     "point": -1.010863
+    },
+    "full_spectrum": 97.276859,
+    "standard": 96.265996
+   }
+  },
+  "class_conditional_full": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.132729,
+     "lo": 0.868261,
+     "point": 1.00006
+    },
+    "full_spectrum": 96.766094,
+    "standard": 97.766153
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 1.036929,
+     "lo": 0.761198,
+     "point": 0.900427
+    },
+    "full_spectrum": 97.298287,
+    "standard": 98.198713
+   }
+  },
+  "knn_normalized": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.741627,
+     "lo": 1.433533,
+     "point": 1.581309
+    },
+    "full_spectrum": 97.174269,
+    "standard": 98.755578
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 1.9925,
+     "lo": 1.653899,
+     "point": 1.820014
+    },
+    "full_spectrum": 96.467636,
+    "standard": 98.28765
+   }
+  },
+  "knn_unnormalized": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 2.422637,
+     "lo": 1.736226,
+     "point": 2.067592
+    },
+    "full_spectrum": 89.927622,
+    "standard": 91.995214
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.539583,
+     "lo": 0.148794,
+     "point": 0.34371
+    },
+    "full_spectrum": 96.961625,
+    "standard": 97.305335
+   }
+  },
+  "marginal_diagonal": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -9.910917,
+     "lo": -10.84907,
+     "point": -10.393788
+    },
+    "full_spectrum": 72.142268,
+    "standard": 61.74848
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -10.615505,
+     "lo": -11.773913,
+     "point": -11.213691
+    },
+    "full_spectrum": 84.235383,
+    "standard": 73.021692
+   }
+  },
+  "marginal_full": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.086542,
+     "lo": 0.799688,
+     "point": 0.943384
+    },
+    "full_spectrum": 95.989895,
+    "standard": 96.933279
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.934456,
+     "lo": 0.644633,
+     "point": 0.790524
+    },
+    "full_spectrum": 97.082536,
+    "standard": 97.873061
+   }
+  },
+  "pca_residual_all_id": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.274008,
+     "lo": 1.026393,
+     "point": 1.150299
+    },
+    "full_spectrum": 97.619369,
+    "standard": 98.769668
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 2.130702,
+     "lo": 1.752294,
+     "point": 1.945948
+    },
+    "full_spectrum": 95.557322,
+    "standard": 97.503269
+   }
+  },
+  "pca_residual_all_id_l2": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.080722,
+     "lo": 0.880772,
+     "point": 0.97907
+    },
+    "full_spectrum": 98.615287,
+    "standard": 99.594357
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 3.523759,
+     "lo": 3.05167,
+     "point": 3.291208
+    },
+    "full_spectrum": 94.214544,
+    "standard": 97.505752
+   }
+  },
+  "pca_residual_class_mean": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": -2.318861,
+     "lo": -3.023575,
+     "point": -2.688152
+    },
+    "full_spectrum": 86.697606,
+    "standard": 84.009454
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": -1.957736,
+     "lo": -2.55957,
+     "point": -2.257829
+    },
+    "full_spectrum": 95.827904,
+    "standard": 93.570074
+   }
+  },
+  "pca_residual_class_mean_l2": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 0.658951,
+     "lo": 0.336903,
+     "point": 0.497784
+    },
+    "full_spectrum": 97.673321,
+    "standard": 98.171105
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.944608,
+     "lo": 0.556301,
+     "point": 0.750543
+    },
+    "full_spectrum": 96.598477,
+    "standard": 97.34902
+   }
+  },
+  "pca_residual_class_mean_whitened": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 1.099979,
+     "lo": 0.81385,
+     "point": 0.95659
+    },
+    "full_spectrum": 96.074364,
+    "standard": 97.030954
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 0.945184,
+     "lo": 0.655704,
+     "point": 0.801644
+    },
+    "full_spectrum": 97.11945,
+    "standard": 97.921094
+   }
+  },
+  "rmd": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 5.040558,
+     "lo": 4.5065,
+     "point": 4.764283
+    },
+    "full_spectrum": 94.57321,
+    "standard": 99.337493
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 8.579694,
+     "lo": 7.786976,
+     "point": 8.187411
+    },
+    "full_spectrum": 90.130792,
+    "standard": 98.318203
+   }
+  },
+  "rmd_pp": {
+   "far_ood": {
+    "auroc_lost": {
+     "hi": 5.065786,
+     "lo": 4.539747,
+     "point": 4.789584
+    },
+    "full_spectrum": 94.496968,
+    "standard": 99.286552
+   },
+   "near_ood": {
+    "auroc_lost": {
+     "hi": 8.091659,
+     "lo": 7.322896,
+     "point": 7.709248
+    },
+    "full_spectrum": 90.658738,
+    "standard": 98.367986
+   }
+  }
+ },
+ "factorial": {
+  "cells": {
+   "full_spectrum": {
+    "far_ood": {
+     "class_conditional|diagonal": {
+      "hi": 91.424348,
+      "lo": 90.819913,
+      "point": 91.130084
+     },
+     "class_conditional|full": {
+      "hi": 96.876778,
+      "lo": 96.567566,
+      "point": 96.720691
+     },
+     "marginal|diagonal": {
+      "hi": 71.929541,
+      "lo": 70.938386,
+      "point": 71.44617
+     },
+     "marginal|full": {
+      "hi": 96.124663,
+      "lo": 95.785746,
+      "point": 95.955838
+     }
+    },
+    "near_ood": {
+     "class_conditional|diagonal": {
+      "hi": 97.492503,
+      "lo": 97.032518,
+      "point": 97.270376
+     },
+     "class_conditional|full": {
+      "hi": 97.495543,
+      "lo": 97.133673,
+      "point": 97.312897
+     },
+     "marginal|diagonal": {
+      "hi": 84.858389,
+      "lo": 83.554668,
+      "point": 84.214598
+     },
+     "marginal|full": {
+      "hi": 97.28952,
+      "lo": 96.889818,
+      "point": 97.087166
+     }
+    }
+   },
+   "standard": {
+    "far_ood": {
+     "class_conditional|diagonal": {
+      "hi": 90.270594,
+      "lo": 89.821084,
+      "point": 90.060893
+     },
+     "class_conditional|full": {
+      "hi": 97.814714,
+      "lo": 97.634189,
+      "point": 97.723825
+     },
+     "marginal|diagonal": {
+      "hi": 61.227665,
+      "lo": 60.53988,
+      "point": 60.886597
+     },
+     "marginal|full": {
+      "hi": 97.005497,
+      "lo": 96.79338,
+      "point": 96.90048
+     }
+    },
+    "near_ood": {
+     "class_conditional|diagonal": {
+      "hi": 96.454651,
+      "lo": 96.026181,
+      "point": 96.242896
+     },
+     "class_conditional|full": {
+      "hi": 98.325375,
+      "lo": 98.084454,
+      "point": 98.201783
+     },
+     "marginal|diagonal": {
+      "hi": 73.536914,
+      "lo": 72.366476,
+      "point": 72.985864
+     },
+     "marginal|full": {
+      "hi": 98.012238,
+      "lo": 97.744728,
+      "point": 97.872121
+     }
+    }
+   }
+  },
+  "full_minus_diagonal": {
+   "full_spectrum": {
+    "far_ood": {
+     "class_conditional": {
+      "datasets_agree_in_sign": true,
+      "hi": 5.811349,
+      "lo": 5.377794,
+      "per_dataset": {
+       "mnist": {
+        "hi": 2.960472,
+        "lo": 2.385776,
+        "point": 2.676866
+       },
+       "places365": {
+        "hi": 0.285364,
+        "lo": 0.126545,
+        "point": 0.204994
+       },
+       "svhn": {
+        "hi": 19.915908,
+        "lo": 18.667259,
+        "point": 19.273726
+       },
+       "texture": {
+        "hi": 0.254006,
+        "lo": 0.162488,
+        "point": 0.206843
+       }
+      },
+      "point": 5.590607
+     },
+     "marginal": {
+      "datasets_agree_in_sign": true,
+      "hi": 24.98662,
+      "lo": 24.045316,
+      "per_dataset": {
+       "mnist": {
+        "hi": 32.514102,
+        "lo": 30.633432,
+        "point": 31.538827
+       },
+       "places365": {
+        "hi": 5.15498,
+        "lo": 4.362899,
+        "point": 4.765043
+       },
+       "svhn": {
+        "hi": 59.663675,
+        "lo": 58.183679,
+        "point": 58.909558
+       },
+       "texture": {
+        "hi": 3.125179,
+        "lo": 2.526464,
+        "point": 2.825244
+       }
+      },
+      "point": 24.509668
+     }
+    },
+    "near_ood": {
+     "class_conditional": {
+      "datasets_agree_in_sign": false,
+      "hi": 0.228256,
+      "lo": -0.142934,
+      "per_dataset": {
+       "cifar100": {
+        "hi": -0.186993,
+        "lo": -0.702823,
+        "point": -0.444958
+       },
+       "tin": {
+        "hi": 0.667358,
+        "lo": 0.395755,
+        "point": 0.530002
+       }
+      },
+      "point": 0.042522
+     },
+     "marginal": {
+      "datasets_agree_in_sign": true,
+      "hi": 13.480119,
+      "lo": 12.287019,
+      "per_dataset": {
+       "cifar100": {
+        "hi": 16.728766,
+        "lo": 15.241683,
+        "point": 15.961456
+       },
+       "tin": {
+        "hi": 10.376491,
+        "lo": 9.206385,
+        "point": 9.783681
+       }
+      },
+      "point": 12.872568
+     }
+    }
+   },
+   "standard": {
+    "far_ood": {
+     "class_conditional": {
+      "datasets_agree_in_sign": true,
+      "hi": 7.844518,
+      "lo": 7.49418,
+      "per_dataset": {
+       "mnist": {
+        "hi": 4.960448,
+        "lo": 4.436057,
+        "point": 4.677924
+       },
+       "places365": {
+        "hi": 0.921292,
+        "lo": 0.747981,
+        "point": 0.828817
+       },
+       "svhn": {
+        "hi": 25.251432,
+        "lo": 24.256942,
+        "point": 24.751923
+       },
+       "texture": {
+        "hi": 0.457764,
+        "lo": 0.328086,
+        "point": 0.393061
+       }
+      },
+      "point": 7.662931
+     },
+     "marginal": {
+      "datasets_agree_in_sign": true,
+      "hi": 36.348749,
+      "lo": 35.68769,
+      "per_dataset": {
+       "mnist": {
+        "hi": 52.681584,
+        "lo": 51.379392,
+        "point": 52.025906
+       },
+       "places365": {
+        "hi": 10.852563,
+        "lo": 10.086696,
+        "point": 10.475348
+       },
+       "svhn": {
+        "hi": 76.32794,
+        "lo": 75.45056,
+        "point": 75.869483
+       },
+       "texture": {
+        "hi": 6.079228,
+        "lo": 5.272434,
+        "point": 5.684797
+       }
+      },
+      "point": 36.013883
+     }
+    },
+    "near_ood": {
+     "class_conditional": {
+      "datasets_agree_in_sign": true,
+      "hi": 2.1415,
+      "lo": 1.793017,
+      "per_dataset": {
+       "cifar100": {
+        "hi": 2.645489,
+        "lo": 2.147748,
+        "point": 2.391248
+       },
+       "tin": {
+        "hi": 1.679988,
+        "lo": 1.393054,
+        "point": 1.526525
+       }
+      },
+      "point": 1.958887
+     },
+     "marginal": {
+      "datasets_agree_in_sign": true,
+      "hi": 25.492362,
+      "lo": 24.34603,
+      "per_dataset": {
+       "cifar100": {
+        "hi": 31.647859,
+        "lo": 30.223202,
+        "point": 30.924956
+       },
+       "tin": {
+        "hi": 19.489148,
+        "lo": 18.203036,
+        "point": 18.847557
+       }
+      },
+      "point": 24.886256
+     }
+    }
+   }
+  }
+ },
+ "per_dataset_full_spectrum": {
+  "class_conditional_diagonal": {
+   "datasets": {
+    "cifar100": {
+     "hi": 96.141851,
+     "lo": 95.476948,
+     "point": 95.820701
+    },
+    "mnist": {
+     "hi": 96.749738,
+     "lo": 96.101773,
+     "point": 96.428312
+    },
+    "places365": {
+     "hi": 99.296745,
+     "lo": 99.112755,
+     "point": 99.208084
+    },
+    "svhn": {
+     "hi": 69.968223,
+     "lo": 68.177189,
+     "point": 69.123244
+    },
+    "texture": {
+     "hi": 99.810256,
+     "lo": 99.7078,
+     "point": 99.760696
+    },
+    "tin": {
+     "hi": 98.877901,
+     "lo": 98.552193,
+     "point": 98.72005
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 91.424348,
+     "lo": 90.819913,
+     "point": 91.130084
+    },
+    "near_ood": {
+     "hi": 97.492503,
+     "lo": 97.032518,
+     "point": 97.270376
+    }
+   }
+  },
+  "class_conditional_full": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.689924,
+     "lo": 95.081336,
+     "point": 95.375743
+    },
+    "mnist": {
+     "hi": 99.206626,
+     "lo": 98.992785,
+     "point": 99.105178
+    },
+    "places365": {
+     "hi": 99.473796,
+     "lo": 99.352353,
+     "point": 99.413078
+    },
+    "svhn": {
+     "hi": 88.884962,
+     "lo": 87.90495,
+     "point": 88.39697
+    },
+    "texture": {
+     "hi": 99.980457,
+     "lo": 99.952036,
+     "point": 99.967538
+    },
+    "tin": {
+     "hi": 99.336385,
+     "lo": 99.153409,
+     "point": 99.250052
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 96.876778,
+     "lo": 96.567566,
+     "point": 96.720691
+    },
+    "near_ood": {
+     "hi": 97.495543,
+     "lo": 97.133673,
+     "point": 97.312897
+    }
+   }
+  },
+  "knn_normalized": {
+   "datasets": {
+    "cifar100": {
+     "hi": 94.580419,
+     "lo": 93.845323,
+     "point": 94.209884
+    },
+    "mnist": {
+     "hi": 98.569897,
+     "lo": 98.186243,
+     "point": 98.390357
+    },
+    "places365": {
+     "hi": 98.575989,
+     "lo": 98.38075,
+     "point": 98.479936
+    },
+    "svhn": {
+     "hi": 92.350387,
+     "lo": 91.388578,
+     "point": 91.880358
+    },
+    "texture": {
+     "hi": 99.971434,
+     "lo": 99.916666,
+     "point": 99.946424
+    },
+    "tin": {
+     "hi": 98.872546,
+     "lo": 98.580223,
+     "point": 98.725388
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.340073,
+     "lo": 96.999091,
+     "point": 97.174269
+    },
+    "near_ood": {
+     "hi": 96.68736,
+     "lo": 96.24396,
+     "point": 96.467636
+    }
+   }
+  },
+  "knn_unnormalized": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.446986,
+     "lo": 94.670947,
+     "point": 95.065026
+    },
+    "mnist": {
+     "hi": 93.542715,
+     "lo": 92.369066,
+     "point": 92.969855
+    },
+    "places365": {
+     "hi": 98.926224,
+     "lo": 98.710655,
+     "point": 98.816617
+    },
+    "svhn": {
+     "hi": 69.039179,
+     "lo": 67.165625,
+     "point": 68.113953
+    },
+    "texture": {
+     "hi": 99.853397,
+     "lo": 99.764302,
+     "point": 99.810064
+    },
+    "tin": {
+     "hi": 99.015313,
+     "lo": 98.700829,
+     "point": 98.858224
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 90.299675,
+     "lo": 89.545647,
+     "point": 89.927622
+    },
+    "near_ood": {
+     "hi": 97.208472,
+     "lo": 96.706918,
+     "point": 96.961625
+    }
+   }
+  },
+  "marginal_diagonal": {
+   "datasets": {
+    "cifar100": {
+     "hi": 79.749961,
+     "lo": 78.172281,
+     "point": 78.983197
+    },
+    "mnist": {
+     "hi": 68.238971,
+     "lo": 66.310679,
+     "point": 67.325601
+    },
+    "places365": {
+     "hi": 95.068979,
+     "lo": 94.278455,
+     "point": 94.66538
+    },
+    "svhn": {
+     "hi": 27.26943,
+     "lo": 25.945336,
+     "point": 26.650915
+    },
+    "texture": {
+     "hi": 97.442421,
+     "lo": 96.841272,
+     "point": 97.142786
+    },
+    "tin": {
+     "hi": 90.040673,
+     "lo": 88.816055,
+     "point": 89.446
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 71.929541,
+     "lo": 70.938386,
+     "point": 71.44617
+    },
+    "near_ood": {
+     "hi": 84.858389,
+     "lo": 83.554668,
+     "point": 84.214598
+    }
+   }
+  },
+  "marginal_full": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.287735,
+     "lo": 94.61219,
+     "point": 94.944652
+    },
+    "mnist": {
+     "hi": 98.980485,
+     "lo": 98.738696,
+     "point": 98.864428
+    },
+    "places365": {
+     "hi": 99.492317,
+     "lo": 99.368676,
+     "point": 99.430423
+    },
+    "svhn": {
+     "hi": 86.101034,
+     "lo": 85.021035,
+     "point": 85.560473
+    },
+    "texture": {
+     "hi": 99.980349,
+     "lo": 99.953976,
+     "point": 99.968029
+    },
+    "tin": {
+     "hi": 99.31839,
+     "lo": 99.133875,
+     "point": 99.22968
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 96.124663,
+     "lo": 95.785746,
+     "point": 95.955838
+    },
+    "near_ood": {
+     "hi": 97.28952,
+     "lo": 96.889818,
+     "point": 97.087166
+    }
+   }
+  },
+  "pca_residual_all_id": {
+   "datasets": {
+    "cifar100": {
+     "hi": 92.948525,
+     "lo": 92.118093,
+     "point": 92.528683
+    },
+    "mnist": {
+     "hi": 99.230667,
+     "lo": 99.02357,
+     "point": 99.135692
+    },
+    "places365": {
+     "hi": 99.137331,
+     "lo": 98.969274,
+     "point": 99.053819
+    },
+    "svhn": {
+     "hi": 92.700744,
+     "lo": 91.953902,
+     "point": 92.342209
+    },
+    "texture": {
+     "hi": 99.963705,
+     "lo": 99.92514,
+     "point": 99.945756
+    },
+    "tin": {
+     "hi": 98.726231,
+     "lo": 98.442647,
+     "point": 98.58596
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.751236,
+     "lo": 97.486108,
+     "point": 97.619369
+    },
+    "near_ood": {
+     "hi": 95.802156,
+     "lo": 95.319965,
+     "point": 95.557322
+    }
+   }
+  },
+  "pca_residual_all_id_l2": {
+   "datasets": {
+    "cifar100": {
+     "hi": 90.97768,
+     "lo": 90.025726,
+     "point": 90.480929
+    },
+    "mnist": {
+     "hi": 99.354205,
+     "lo": 99.15772,
+     "point": 99.261179
+    },
+    "places365": {
+     "hi": 98.817077,
+     "lo": 98.628262,
+     "point": 98.725683
+    },
+    "svhn": {
+     "hi": 96.802507,
+     "lo": 96.308806,
+     "point": 96.555447
+    },
+    "texture": {
+     "hi": 99.942152,
+     "lo": 99.892715,
+     "point": 99.918838
+    },
+    "tin": {
+     "hi": 98.126663,
+     "lo": 97.766026,
+     "point": 97.948158
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.719935,
+     "lo": 98.507481,
+     "point": 98.615287
+    },
+    "near_ood": {
+     "hi": 94.513739,
+     "lo": 93.933505,
+     "point": 94.214544
+    }
+   }
+  },
+  "pca_residual_class_mean": {
+   "datasets": {
+    "cifar100": {
+     "hi": 94.213349,
+     "lo": 93.278571,
+     "point": 93.74313
+    },
+    "mnist": {
+     "hi": 92.659691,
+     "lo": 91.472219,
+     "point": 92.069472
+    },
+    "places365": {
+     "hi": 98.999608,
+     "lo": 98.714635,
+     "point": 98.854638
+    },
+    "svhn": {
+     "hi": 57.274873,
+     "lo": 55.364331,
+     "point": 56.349766
+    },
+    "texture": {
+     "hi": 99.604503,
+     "lo": 99.42689,
+     "point": 99.516546
+    },
+    "tin": {
+     "hi": 98.140872,
+     "lo": 97.659861,
+     "point": 97.912677
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 87.08248,
+     "lo": 86.293913,
+     "point": 86.697606
+    },
+    "near_ood": {
+     "hi": 96.162119,
+     "lo": 95.505261,
+     "point": 95.827904
+    }
+   }
+  },
+  "pca_residual_class_mean_l2": {
+   "datasets": {
+    "cifar100": {
+     "hi": 94.422376,
+     "lo": 93.671711,
+     "point": 94.053821
+    },
+    "mnist": {
+     "hi": 99.089762,
+     "lo": 98.791836,
+     "point": 98.955871
+    },
+    "places365": {
+     "hi": 99.521008,
+     "lo": 99.417147,
+     "point": 99.471954
+    },
+    "svhn": {
+     "hi": 92.779887,
+     "lo": 91.783427,
+     "point": 92.300784
+    },
+    "texture": {
+     "hi": 99.986084,
+     "lo": 99.93997,
+     "point": 99.964676
+    },
+    "tin": {
+     "hi": 99.249285,
+     "lo": 99.024257,
+     "point": 99.143134
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.832199,
+     "lo": 97.507533,
+     "point": 97.673321
+    },
+    "near_ood": {
+     "hi": 96.813099,
+     "lo": 96.370542,
+     "point": 96.598477
+    }
+   }
+  },
+  "pca_residual_class_mean_whitened": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.341387,
+     "lo": 94.678766,
+     "point": 95.006192
+    },
+    "mnist": {
+     "hi": 99.027691,
+     "lo": 98.792502,
+     "point": 98.915511
+    },
+    "places365": {
+     "hi": 99.490468,
+     "lo": 99.366881,
+     "point": 99.428541
+    },
+    "svhn": {
+     "hi": 86.521067,
+     "lo": 85.45261,
+     "point": 85.985477
+    },
+    "texture": {
+     "hi": 99.9804,
+     "lo": 99.953718,
+     "point": 99.967929
+    },
+    "tin": {
+     "hi": 99.320997,
+     "lo": 99.13714,
+     "point": 99.232709
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 96.241537,
+     "lo": 95.907305,
+     "point": 96.074364
+    },
+    "near_ood": {
+     "hi": 97.320681,
+     "lo": 96.924339,
+     "point": 97.11945
+    }
+   }
+  },
+  "rmd": {
+   "datasets": {
+    "cifar100": {
+     "hi": 87.519133,
+     "lo": 86.445556,
+     "point": 86.986539
+    },
+    "mnist": {
+     "hi": 92.673883,
+     "lo": 91.906154,
+     "point": 92.300462
+    },
+    "places365": {
+     "hi": 89.835429,
+     "lo": 88.978623,
+     "point": 89.414565
+    },
+    "svhn": {
+     "hi": 94.581756,
+     "lo": 93.964888,
+     "point": 94.274998
+    },
+    "texture": {
+     "hi": 86.58752,
+     "lo": 85.358869,
+     "point": 85.996924
+    },
+    "tin": {
+     "hi": 87.301684,
+     "lo": 86.162148,
+     "point": 86.758526
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 90.890872,
+     "lo": 90.071927,
+     "point": 90.496737
+    },
+    "near_ood": {
+     "hi": 87.40477,
+     "lo": 86.334453,
+     "point": 86.872532
+    }
+   }
+  },
+  "rmd_pp": {
+   "datasets": {
+    "cifar100": {
+     "hi": 88.632237,
+     "lo": 87.621961,
+     "point": 88.128809
+    },
+    "mnist": {
+     "hi": 92.666326,
+     "lo": 91.896516,
+     "point": 92.288822
+    },
+    "places365": {
+     "hi": 90.466897,
+     "lo": 89.670943,
+     "point": 90.071736
+    },
+    "svhn": {
+     "hi": 94.550289,
+     "lo": 93.952394,
+     "point": 94.25941
+    },
+    "texture": {
+     "hi": 87.883894,
+     "lo": 86.73913,
+     "point": 87.331875
+    },
+    "tin": {
+     "hi": 88.327308,
+     "lo": 87.251555,
+     "point": 87.81598
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 91.372039,
+     "lo": 90.579425,
+     "point": 90.987961
+    },
+    "near_ood": {
+     "hi": 88.472528,
+     "lo": 87.463373,
+     "point": 87.972394
+    }
+   }
+  }
+ },
+ "per_dataset_standard": {
+  "class_conditional_diagonal": {
+   "datasets": {
+    "cifar100": {
+     "hi": 94.756591,
+     "lo": 94.158108,
+     "point": 94.469998
+    },
+    "mnist": {
+     "hi": 95.074329,
+     "lo": 94.505786,
+     "point": 94.813242
+    },
+    "places365": {
+     "hi": 98.886113,
+     "lo": 98.679338,
+     "point": 98.786878
+    },
+    "svhn": {
+     "hi": 67.650024,
+     "lo": 66.404803,
+     "point": 67.055135
+    },
+    "texture": {
+     "hi": 99.655793,
+     "lo": 99.521286,
+     "point": 99.58832
+    },
+    "tin": {
+     "hi": 98.180215,
+     "lo": 97.831411,
+     "point": 98.015795
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 90.270594,
+     "lo": 89.821084,
+     "point": 90.060893
+    },
+    "near_ood": {
+     "hi": 96.454651,
+     "lo": 96.026181,
+     "point": 96.242896
+    }
+   }
+  },
+  "class_conditional_full": {
+   "datasets": {
+    "cifar100": {
+     "hi": 97.084628,
+     "lo": 96.652042,
+     "point": 96.861246
+    },
+    "mnist": {
+     "hi": 99.562267,
+     "lo": 99.414693,
+     "point": 99.491166
+    },
+    "places365": {
+     "hi": 99.659016,
+     "lo": 99.575341,
+     "point": 99.615694
+    },
+    "svhn": {
+     "hi": 92.100932,
+     "lo": 91.514607,
+     "point": 91.807058
+    },
+    "texture": {
+     "hi": 99.989352,
+     "lo": 99.971357,
+     "point": 99.981381
+    },
+    "tin": {
+     "hi": 99.603568,
+     "lo": 99.476117,
+     "point": 99.54232
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.814714,
+     "lo": 97.634189,
+     "point": 97.723825
+    },
+    "near_ood": {
+     "hi": 98.325375,
+     "lo": 98.084454,
+     "point": 98.201783
+    }
+   }
+  },
+  "knn_normalized": {
+   "datasets": {
+    "cifar100": {
+     "hi": 97.385311,
+     "lo": 96.982936,
+     "point": 97.187949
+    },
+    "mnist": {
+     "hi": 99.321049,
+     "lo": 99.0489,
+     "point": 99.193576
+    },
+    "places365": {
+     "hi": 99.226182,
+     "lo": 99.101545,
+     "point": 99.162941
+    },
+    "svhn": {
+     "hi": 96.919546,
+     "lo": 96.456227,
+     "point": 96.693041
+    },
+    "texture": {
+     "hi": 99.984577,
+     "lo": 99.958238,
+     "point": 99.972754
+    },
+    "tin": {
+     "hi": 99.465675,
+     "lo": 99.305768,
+     "point": 99.387352
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.849775,
+     "lo": 98.660093,
+     "point": 98.755578
+    },
+    "near_ood": {
+     "hi": 98.403035,
+     "lo": 98.16174,
+     "point": 98.28765
+    }
+   }
+  },
+  "knn_unnormalized": {
+   "datasets": {
+    "cifar100": {
+     "hi": 96.008337,
+     "lo": 95.46898,
+     "point": 95.744183
+    },
+    "mnist": {
+     "hi": 94.146681,
+     "lo": 93.455403,
+     "point": 93.794509
+    },
+    "places365": {
+     "hi": 99.004622,
+     "lo": 98.833315,
+     "point": 98.921832
+    },
+    "svhn": {
+     "hi": 76.077929,
+     "lo": 74.897392,
+     "point": 75.490243
+    },
+    "texture": {
+     "hi": 99.813291,
+     "lo": 99.734076,
+     "point": 99.774273
+    },
+    "tin": {
+     "hi": 98.980238,
+     "lo": 98.740292,
+     "point": 98.866487
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 92.230163,
+     "lo": 91.775898,
+     "point": 91.995214
+    },
+    "near_ood": {
+     "hi": 97.474715,
+     "lo": 97.132215,
+     "point": 97.305335
+    }
+   }
+  },
+  "marginal_diagonal": {
+   "datasets": {
+    "cifar100": {
+     "hi": 66.06841,
+     "lo": 64.559631,
+     "point": 65.338334
+    },
+    "mnist": {
+     "hi": 47.878899,
+     "lo": 46.564753,
+     "point": 47.232835
+    },
+    "places365": {
+     "hi": 89.517065,
+     "lo": 88.74848,
+     "point": 89.122553
+    },
+    "svhn": {
+     "hi": 13.261113,
+     "lo": 12.513946,
+     "point": 12.896002
+    },
+    "texture": {
+     "hi": 94.705088,
+     "lo": 93.899844,
+     "point": 94.294996
+    },
+    "tin": {
+     "hi": 81.309718,
+     "lo": 79.962652,
+     "point": 80.633395
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 61.227665,
+     "lo": 60.53988,
+     "point": 60.886597
+    },
+    "near_ood": {
+     "hi": 73.536914,
+     "lo": 72.366476,
+     "point": 72.985864
+    }
+   }
+  },
+  "marginal_full": {
+   "datasets": {
+    "cifar100": {
+     "hi": 96.518248,
+     "lo": 96.033482,
+     "point": 96.26329
+    },
+    "mnist": {
+     "hi": 99.340778,
+     "lo": 99.173765,
+     "point": 99.25874
+    },
+    "places365": {
+     "hi": 99.643529,
+     "lo": 99.554713,
+     "point": 99.597901
+    },
+    "svhn": {
+     "hi": 89.107419,
+     "lo": 88.420289,
+     "point": 88.765485
+    },
+    "texture": {
+     "hi": 99.987868,
+     "lo": 99.969843,
+     "point": 99.979793
+    },
+    "tin": {
+     "hi": 99.547142,
+     "lo": 99.409077,
+     "point": 99.480952
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.005497,
+     "lo": 96.79338,
+     "point": 96.90048
+    },
+    "near_ood": {
+     "hi": 98.012238,
+     "lo": 97.744728,
+     "point": 97.872121
+    }
+   }
+  },
+  "pca_residual_all_id": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.972866,
+     "lo": 95.442651,
+     "point": 95.693212
+    },
+    "mnist": {
+     "hi": 99.708149,
+     "lo": 99.576565,
+     "point": 99.64693
+    },
+    "places365": {
+     "hi": 99.576072,
+     "lo": 99.47816,
+     "point": 99.526624
+    },
+    "svhn": {
+     "hi": 96.153384,
+     "lo": 95.725679,
+     "point": 95.929104
+    },
+    "texture": {
+     "hi": 99.985388,
+     "lo": 99.964794,
+     "point": 99.976015
+    },
+    "tin": {
+     "hi": 99.397325,
+     "lo": 99.224847,
+     "point": 99.313327
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.846623,
+     "lo": 98.693199,
+     "point": 98.769668
+    },
+    "near_ood": {
+     "hi": 97.660821,
+     "lo": 97.353855,
+     "point": 97.503269
+    }
+   }
+  },
+  "pca_residual_all_id_l2": {
+   "datasets": {
+    "cifar100": {
+     "hi": 96.016552,
+     "lo": 95.479416,
+     "point": 95.736524
+    },
+    "mnist": {
+     "hi": 99.861233,
+     "lo": 99.748567,
+     "point": 99.811104
+    },
+    "places365": {
+     "hi": 99.58924,
+     "lo": 99.496033,
+     "point": 99.542341
+    },
+    "svhn": {
+     "hi": 99.162566,
+     "lo": 98.925312,
+     "point": 99.047348
+    },
+    "texture": {
+     "hi": 99.98561,
+     "lo": 99.965071,
+     "point": 99.976635
+    },
+    "tin": {
+     "hi": 99.358015,
+     "lo": 99.182923,
+     "point": 99.274979
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 99.643657,
+     "lo": 99.541083,
+     "point": 99.594357
+    },
+    "near_ood": {
+     "hi": 97.6661,
+     "lo": 97.357353,
+     "point": 97.505752
+    }
+   }
+  },
+  "pca_residual_class_mean": {
+   "datasets": {
+    "cifar100": {
+     "hi": 91.131052,
+     "lo": 90.304992,
+     "point": 90.731423
+    },
+    "mnist": {
+     "hi": 88.331471,
+     "lo": 87.431433,
+     "point": 87.891539
+    },
+    "places365": {
+     "hi": 98.054111,
+     "lo": 97.753755,
+     "point": 97.903156
+    },
+    "svhn": {
+     "hi": 51.816788,
+     "lo": 50.494862,
+     "point": 51.153515
+    },
+    "texture": {
+     "hi": 99.197999,
+     "lo": 98.976714,
+     "point": 99.089606
+    },
+    "tin": {
+     "hi": 96.655506,
+     "lo": 96.162327,
+     "point": 96.408726
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 84.29103,
+     "lo": 83.70925,
+     "point": 84.009454
+    },
+    "near_ood": {
+     "hi": 93.854466,
+     "lo": 93.264216,
+     "point": 93.570074
+    }
+   }
+  },
+  "pca_residual_class_mean_l2": {
+   "datasets": {
+    "cifar100": {
+     "hi": 95.722287,
+     "lo": 95.139566,
+     "point": 95.435343
+    },
+    "mnist": {
+     "hi": 99.00772,
+     "lo": 98.675447,
+     "point": 98.853727
+    },
+    "places365": {
+     "hi": 99.614567,
+     "lo": 99.534211,
+     "point": 99.575377
+    },
+    "svhn": {
+     "hi": 94.623656,
+     "lo": 93.897621,
+     "point": 94.287121
+    },
+    "texture": {
+     "hi": 99.984566,
+     "lo": 99.948625,
+     "point": 99.968195
+    },
+    "tin": {
+     "hi": 99.349005,
+     "lo": 99.169055,
+     "point": 99.262697
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.291399,
+     "lo": 98.03325,
+     "point": 98.171105
+    },
+    "near_ood": {
+     "hi": 97.515074,
+     "lo": 97.176736,
+     "point": 97.34902
+    }
+   }
+  },
+  "pca_residual_class_mean_whitened": {
+   "datasets": {
+    "cifar100": {
+     "hi": 96.600349,
+     "lo": 96.125419,
+     "point": 96.352307
+    },
+    "mnist": {
+     "hi": 99.383529,
+     "lo": 99.219781,
+     "point": 99.304503
+    },
+    "places365": {
+     "hi": 99.646032,
+     "lo": 99.557284,
+     "point": 99.600731
+    },
+    "svhn": {
+     "hi": 89.577283,
+     "lo": 88.904465,
+     "point": 89.238609
+    },
+    "texture": {
+     "hi": 99.988084,
+     "lo": 99.969985,
+     "point": 99.979974
+    },
+    "tin": {
+     "hi": 99.554984,
+     "lo": 99.41927,
+     "point": 99.489881
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 97.134028,
+     "lo": 96.925798,
+     "point": 97.030954
+    },
+    "near_ood": {
+     "hi": 98.058255,
+     "lo": 97.795338,
+     "point": 97.921094
+    }
+   }
+  },
+  "rmd": {
+   "datasets": {
+    "cifar100": {
+     "hi": 97.694107,
+     "lo": 97.274692,
+     "point": 97.47352
+    },
+    "mnist": {
+     "hi": 99.392031,
+     "lo": 99.145379,
+     "point": 99.270649
+    },
+    "places365": {
+     "hi": 97.763622,
+     "lo": 97.43478,
+     "point": 97.608183
+    },
+    "svhn": {
+     "hi": 99.567165,
+     "lo": 99.374219,
+     "point": 99.473502
+    },
+    "texture": {
+     "hi": 97.985741,
+     "lo": 97.502856,
+     "point": 97.736872
+    },
+    "tin": {
+     "hi": 97.701501,
+     "lo": 97.202574,
+     "point": 97.447916
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.655961,
+     "lo": 98.38346,
+     "point": 98.522301
+    },
+    "near_ood": {
+     "hi": 97.669005,
+     "lo": 97.265366,
+     "point": 97.460718
+    }
+   }
+  },
+  "rmd_pp": {
+   "datasets": {
+    "cifar100": {
+     "hi": 97.817413,
+     "lo": 97.402131,
+     "point": 97.599998
+    },
+    "mnist": {
+     "hi": 99.306968,
+     "lo": 99.030664,
+     "point": 99.172051
+    },
+    "places365": {
+     "hi": 97.748875,
+     "lo": 97.411828,
+     "point": 97.587119
+    },
+    "svhn": {
+     "hi": 99.476598,
+     "lo": 99.267987,
+     "point": 99.373913
+    },
+    "texture": {
+     "hi": 98.118293,
+     "lo": 97.665916,
+     "point": 97.887989
+    },
+    "tin": {
+     "hi": 97.80296,
+     "lo": 97.316526,
+     "point": 97.561617
+    }
+   },
+   "group_mean": {
+    "far_ood": {
+     "hi": 98.645561,
+     "lo": 98.366182,
+     "point": 98.505268
+    },
+    "near_ood": {
+     "hi": 97.789399,
+     "lo": 97.385406,
+     "point": 97.580807
+    }
+   }
+  }
+ },
+ "rank_correlations": {
+  "dump": "standard-shrunk",
+  "matrix": [
+   [
+    1.0,
+    0.844083,
+    0.968185,
+    0.842883,
+    -0.326206,
+    -0.255603,
+    0.837267,
+    0.945582,
+    0.717927,
+    0.987207,
+    0.615224,
+    0.816864,
+    0.842225
+   ],
+   [
+    0.844083,
+    1.0,
+    0.865183,
+    0.999322,
+    -0.328668,
+    -0.270592,
+    0.931997,
+    0.900956,
+    0.959961,
+    0.87584,
+    0.910178,
+    0.82571,
+    0.999965
+   ],
+   [
+    0.968185,
+    0.865183,
+    1.0,
+    0.86725,
+    -0.243026,
+    -0.171105,
+    0.846385,
+    0.931927,
+    0.747507,
+    0.980936,
+    0.642157,
+    0.814611,
+    0.863781
+   ],
+   [
+    0.842883,
+    0.999322,
+    0.86725,
+    1.0,
+    -0.298832,
+    -0.240605,
+    0.934191,
+    0.901141,
+    0.957399,
+    0.87566,
+    0.9074,
+    0.82821,
+    0.999294
+   ],
+   [
+    -0.326206,
+    -0.328668,
+    -0.243026,
+    -0.298832,
+    1.0,
+    0.986835,
+    -0.240618,
+    -0.29397,
+    -0.352858,
+    -0.301153,
+    -0.334717,
+    -0.183013,
+    -0.328414
+   ],
+   [
+    -0.255603,
+    -0.270592,
+    -0.171105,
+    -0.240605,
+    0.986835,
+    1.0,
+    -0.179575,
+    -0.222848,
+    -0.308705,
+    -0.231418,
+    -0.301403,
+    -0.136725,
+    -0.270631
+   ],
+   [
+    0.837267,
+    0.931997,
+    0.846385,
+    0.934191,
+    -0.240618,
+    -0.179575,
+    1.0,
+    0.940611,
+    0.852466,
+    0.86907,
+    0.810965,
+    0.890902,
+    0.931103
+   ],
+   [
+    0.945582,
+    0.900956,
+    0.931927,
+    0.901141,
+    -0.29397,
+    -0.222848,
+    0.940611,
+    1.0,
+    0.7857,
+    0.960135,
+    0.705617,
+    0.863366,
+    0.899156
+   ],
+   [
+    0.717927,
+    0.959961,
+    0.747507,
+    0.957399,
+    -0.352858,
+    -0.308705,
+    0.852466,
+    0.7857,
+    1.0,
+    0.755947,
+    0.980358,
+    0.73575,
+    0.960988
+   ],
+   [
+    0.987207,
+    0.87584,
+    0.980936,
+    0.87566,
+    -0.301153,
+    -0.231418,
+    0.86907,
+    0.960135,
+    0.755947,
+    1.0,
+    0.655173,
+    0.845377,
+    0.874094
+   ],
+   [
+    0.615224,
+    0.910178,
+    0.642157,
+    0.9074,
+    -0.334717,
+    -0.301403,
+    0.810965,
+    0.705617,
+    0.980358,
+    0.655173,
+    1.0,
+    0.709183,
+    0.911664
+   ],
+   [
+    0.816864,
+    0.82571,
+    0.814611,
+    0.82821,
+    -0.183013,
+    -0.136725,
+    0.890902,
+    0.863366,
+    0.73575,
+    0.845377,
+    0.709183,
+    1.0,
+    0.824988
+   ],
+   [
+    0.842225,
+    0.999965,
+    0.863781,
+    0.999294,
+    -0.328414,
+    -0.270631,
+    0.931103,
+    0.899156,
+    0.960988,
+    0.874094,
+    0.911664,
+    0.824988,
+    1.0
+   ]
+  ],
+  "order": [
+   "marginal_diagonal",
+   "marginal_full",
+   "class_conditional_diagonal",
+   "class_conditional_full",
+   "rmd",
+   "rmd_pp",
+   "knn_normalized",
+   "knn_unnormalized",
+   "pca_residual_all_id",
+   "pca_residual_class_mean",
+   "pca_residual_all_id_l2",
+   "pca_residual_class_mean_l2",
+   "pca_residual_class_mean_whitened"
+  ],
+  "row_subset": "ood"
+ }
+}
